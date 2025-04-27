@@ -1,0 +1,305 @@
+@* Views/Home/satis_d.cshtml *@
+@{
+    ViewData["Title"] = "X Şirketi ";
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar (Üst Menü) */
+        .navbar {
+            background-color: #2C3E50;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        /* Container genel ayarları */
+        .container {
+    display: flex;
+    width: 65%;  
+    margin-left: 0;  /* Sayfanın sol kenarına yaslansın */
+    padding: 30px;
+    justify-content: flex-start; 
+
+}
+
+        /* Sol Menü (Sidebar) */
+        .sidebar {
+            width: 40%;  /* Sidebar genişliği %40 olacak */
+            background-color: #34495E;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            
+        }
+
+        .sidebar h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .form-group button {
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            background-color: #16A085;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar button:hover {
+            background-color: #1ABC9C;
+        }
+
+        /* Sağ Alan (Formlar) */
+        .right-container {
+            width: 60%;  /* Sağ alan, sidebar'ın geri kalan kısmı olacak */
+            background-color: white;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-container {
+            width: 100%; 
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 600px; 
+            overflow-y: auto; /* İçerik fazla olursa kaydırma çubuğu */
+            text-align: left; /* Form içindeki yazıları sola hizalar */
+        }
+
+        .form-container h2 {
+            text-align: left;
+            color: #2C3E50;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #2C3E50;
+            color: white;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1ABC9C;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sol Menü (Sidebar) -->
+        <div class="sidebar">
+            <h2>İşlemler</h2>
+            <form id="actions-form">
+                <button type="button" id="add-employee-btn">Çalışan Ekle</button>
+                <button type="button" id="delete-employee-btn">Çalışan Sil</button>
+                <button type="button" id="update-employee-btn">Çalışan Güncelle</button>
+                <button type="button" id="search-employee-btn">Çalışan Ara</button>
+                <button type="button" id="add-department-btn">Yeni Departman Ekle</button>
+            </form>
+        </div>
+
+        <!-- Sağ Alan (Formlar) -->
+        <div class="right-container">
+            <div id="form-container-content">
+                <!-- Başlangıçta çalışan ekleme formu olacak -->
+                <h2>Çalışan Ekle</h2>
+                <form id="employee-form">
+                    <div class="form-group">
+                        <label for="name">Ad:</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Soyad:</label>
+                        <input type="text" id="surname" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Eklenecek Departman:</label>
+                        <select id="department" class="form-control" required>
+                            <option value="Department 1">Bilgi Teknolojileri Departmanı</option>
+                            <option value="Department 2">Finans Departmanı</option>
+                            <option value="Department 3">İnsan Kaynakları Departmanı</option>
+                            <option value="Department 4">Pazarlama Departmanı</option>
+                            <option value="Department 5">Satış Departmanı</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Görevi:</label>
+                        <select id="role" class="form-control" required>
+                            <option value="Employee">Çalışan</option>
+                            <option value="Manager">Yönetici</option>
+                        </select>
+                    </div>
+                    <button type="submit">Çalışan Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sol menü butonlarına tıklandığında sağdaki form kısmını değiştiren fonksiyonlar
+        document.getElementById('add-employee-btn').addEventListener('click', function() {
+            document.getElementById('form-container-content').innerHTML = `
+                <h2>Çalışan Ekle</h2>
+                <form id="employee-form">
+                    <div class="form-group">
+                        <label for="name">Ad:</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Soyad:</label>
+                        <input type="text" id="surname" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Eklenecek Departman:</label>
+                        <select id="add-to-department" class="form-control" required>
+                            <option value="Department 1">Bilgi Teknolojileri Departmanı</option>
+                            <option value="Department 2">Finans Departmanı</option>
+                            <option value="Department 3">İnsan Kaynakları Departmanı</option>
+                            <option value="Department 4">Pazarlama Departmanı</option>
+                            <option value="Department 5">Satış Departmanı</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Görevi:</label>
+                        <select id="role" class="form-control" required>
+                            <option value="Employee">Çalışan</option>
+                            <option value="Manager">Yönetici</option>
+                        </select>
+                    </div>
+                    <button type="submit">Çalışan Ekle</button>
+                </form>
+            `;
+        });
+
+        document.getElementById('delete-employee-btn').addEventListener('click', function() {
+            document.getElementById('form-container-content').innerHTML = `
+                <h2>Çalışan Sil</h2>
+                <form id="delete-form">
+                    <div class="form-group">
+                        <label for="department">Silinecek Çalışanın Departmanı:</label>
+                        <select id="delete-from-department" class="form-control" required>
+                            <option value="Department 1">Bilgi Teknolojileri Departmanı</option>
+                            <option value="Department 2">Finans Departmanı</option>
+                            <option value="Department 3">İnsan Kaynakları Departmanı</option>
+                            <option value="Department 4">Pazarlama Departmanı</option>
+                            <option value="Department 5">Satış Departmanı</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullname">Silinecek Çalışanın Adı & Soyadı:</label>
+                            <input type="text" id="delete-fullname" class="form-control" required>
+                    </div>
+                    <button type="submit">Çalışanı Sil</button>
+                </form>
+            `;
+        });
+
+        document.getElementById('update-employee-btn').addEventListener('click', function() {
+            document.getElementById('form-container-content').innerHTML = `
+                <h2>Çalışan Güncelle</h2>
+                <form id="update-form">
+                    <div class="form-group">
+                        <label for="update-name">Güncellenecek Çalışanın Adı:</label>
+                        <input type="text" id="update-fullname" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-role">Yeni Görev:</label>
+                        <select id="update-role" class="form-control" required>
+                            <option value="Employee">Çalışan</option>
+                            <option value="Manager">Yönetici</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit">Güncelle</button>
+                </form>
+            `;
+        });
+
+    document.getElementById('search-employee-btn').addEventListener('click', function() {
+    document.getElementById('form-container-content').innerHTML = `
+        <h2>Çalışan Ara</h2>
+        <form id="search-form">
+            <div class="form-group">
+                <label for="search-name">Aranacak Çalışan:</label>
+                <input type="text" id="search-fullname" class="form-control" required>
+            </div>
+
+            <button type="button" id="search-employee-submit">Çalışanı Bul</button>
+
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="found-department">Bulunan Departman:</label>
+                <input type="text" id="found-department" class="form-control" readonly>
+            </div>
+        </form>
+    `;
+      });
+/*
+    document.getElementById('search-employee-submit').addEventListener('click', function() {
+    let fullName = document.getElementById('search-fullname').value.trim();
+    let foundDepartment = document.getElementById('found-department');
+
+    let department = calisanAraTree(fullName);
+
+    if (department) {
+        foundDepartment.value = department;
+    } else {
+        foundDepartment.value = "Çalışan bulunamadı.";
+    }
+});*/
+ document.getElementById('add-department-btn').addEventListener('click', function() {
+            document.getElementById('form-container-content').innerHTML = `
+                <h2>Yeni Departman Ekle</h2>
+                <form id="add-department-form">
+                    <div class="form-group">
+                        <label for="new-department">Departman Adı:</label>
+                        <input type="text" id="new-department" class="form-control" required>
+                    </div>
+                    <button type="submit">Departman Ekle</button>
+                </form>
+            `;
+        });
+  
+    </script>
+
+</body>
+</html>
