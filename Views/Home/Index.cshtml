@@ -121,6 +121,37 @@
             background-color: #1ABC9C;
         }
 
+       
+    #treeDiagram {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #ccc;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 20px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+        }
+
+        #tree-wrapper{
+
+          display: flex;
+    align-items: center;      /* Dikey ortalama */
+    justify-content: flex-end; /* Sağa yaslama */
+    height: calc(100vh - 80px);  /* Üst bar hariç tüm yüksekliği kaplasın */
+    position: absolute;  /* Sabit pozisyon */
+    top: 60px;  /* Üst barın hemen altına yerleştirildi */
+    right: 20px; /* Sağdan 20px uzaklık */
+          
+          
+
+
+        }
+
     </style>
 </head>
 <body>
@@ -174,6 +205,12 @@
             </div>
         </div>
     </div>
+    
+    <!-- Ağaç Görselleştirme Alanı -->
+<div id="tree-wrapper" style="margin: 20px;">
+    <div id="treeDiagram" ></div>
+</div>
+    <script src="https://unpkg.com/gojs/release/go.js"></script>
 
     <script>
         // Sol menü butonlarına tıklandığında sağdaki form kısmını değiştiren fonksiyonlar
@@ -300,6 +337,64 @@
         });
   
     </script>
+    
+    <!----ağaçyapısı------>
+    <script>
+    async function loadCSVandRenderTree() {
+        const response = await fetch('/data/tree.csv');
+        const text = await response.text();
+
+        const lines = text.trim().split('\n');
+        const headers = lines[0].split(',');
+
+        const nodeDataArray = lines.slice(1).map(line => {
+            const values = line.split(',');
+            return {
+                key: values[0],
+                parent: values[1],
+                name: values[2]
+            };
+        });
+
+        const $ = go.GraphObject.make;
+        const myDiagram = $(go.Diagram, "treeDiagram", {
+            initialContentAlignment: go.Spot.Center,
+            "undoManager.isEnabled": true,
+            allowZoom: true,
+            layout: $(go.TreeLayout, { angle: 90, layerSpacing: 35 })
+        });
+
+        myDiagram.nodeTemplate =
+            $(go.Node, "Horizontal",
+                { selectionAdorned: false },
+                $(go.Panel, "Auto",
+                    $(go.Shape, "RoundedRectangle", { fill: "lightblue" }),
+                    $(go.TextBlock, { margin: 8 }, new go.Binding("text", "name"))
+                )
+            );
+
+        myDiagram.linkTemplate =
+            $(go.Link,
+                $(go.Shape),
+                $(go.Shape, { toArrow: "OpenTriangle" })
+            );
+
+        myDiagram.addDiagramListener("ObjectSingleClicked", function (e) {
+            const part = e.subject.part;
+            if (!(part instanceof go.Node)) return;
+            const diagram = part.diagram;
+            diagram.startTransaction("CollapseExpandTree");
+            const expand = !part.isTreeExpanded;
+            diagram.commandHandler.expandTree(part);
+            if (!expand) diagram.commandHandler.collapseTree(part);
+            diagram.commitTransaction("CollapseExpandTree");
+        });
+
+        myDiagram.model = new go.TreeModel(nodeDataArray);
+    }
+
+    window.addEventListener('DOMContentLoaded', loadCSVandRenderTree);
+</script>
 
 </body>
 </html>
