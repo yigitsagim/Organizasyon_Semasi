@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using veri_y.Models;
+using veri_yapilari.Models;
 
-namespace veri_y.Controllers;
+namespace veri_yapilari.Controllers;
 
 public class HomeController : Controller
 {
@@ -14,11 +14,37 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
-    {
-        return View();
-    }
+{
+    return View();
+}
+
+public IActionResult insan_k()
+{
+    return View();
+}
+
+public IActionResult satis_d()
+{
+    return View();
+}
+
+public IActionResult pazarlama_d()
+{
+    return View();
+}
+
+public IActionResult bilgi_t()
+{
+    return View();
+}
+
+public IActionResult finans()
+{
+    return View();
+}
 
     public IActionResult Privacy()
+    
     {
         return View();
     }

@@ -1,0 +1,108 @@
+key,parent,text
+1,,Genel Müdür - Murtaza Cicioğlu
+1.1,1,BT (Yönetici) - Serkan Öztürk
+1.1.G1.0,1.1,BT Takım 1 (Yönetici) - Tuncay Işık
+1.1.G1.1,1.1.G1.0,BT - Oğuz Türkmen
+1.1.G1.2,1.1.G1.0,BT - Sinem Durmaz
+1.1.G1.3,1.1.G1.0,BT - Ahmet Yılmaz
+1.1.G1.4,1.1.G1.0,BT - Halil Özer
+1.1.G2.0,1.1,BT Takım 2 (Yönetici) - Onur Güngör
+1.1.G2.1,1.1.G2.0,BT - Dilara Şahin
+1.1.G2.2,1.1.G2.0,BT - Zeynep Şen
+1.1.G2.3,1.1.G2.0,BT - Cihan Yücel
+1.1.G2.4,1.1.G2.0,BT - Seda Aydın
+1.1.G3.0,1.1,BT Takım 3 (Yönetici) - Burcu Akıncı
+1.1.G3.1,1.1.G3.0,BT - Mehmet Öztürk
+1.1.G3.2,1.1.G3.0,BT - Duygu Köse
+1.1.G3.3,1.1.G3.0,BT - Aslı Kurt
+1.1.G3.4,1.1.G3.0,BT - Mehmet Özkan
+1.1.G4.0,1.1,BT Takım 4 (Yönetici) - Volkan Çalışkan
+1.1.G4.1,1.1.G4.0,BT - Alper Ay
+1.1.G4.2,1.1.G4.0,BT - Ezgi Sezer
+1.1.G4.3,1.1.G4.0,BT - Volkan Çalışkan
+1.1.G4.4,1.1.G4.0,BT - Umut Avcı
+1.1.G5.0,1.1,BT Takım 5 (Yönetici) - Fatma Polat
+1.1.G5.1,1.1.G5.0,BT - Burak Tan
+1.2,1,Finans (Yönetici) - Koray Tuna
+1.2.G1.0,1.2,Finans Takım 1 (Yönetici) - Hilal Aydın
+1.2.G1.1,1.2.G1.0,Finans - Murat Eren
+1.2.G1.2,1.2.G1.0,Finans - Gizem Karaman
+1.2.G1.3,1.2.G1.0,Finans - Barış Çelik
+1.2.G1.4,1.2.G1.0,Finans - Sevgi Korkmaz
+1.2.G2.0,1.2,Finans Takım 2 (Yönetici) - Pelin Erdoğan
+1.2.G2.1,1.2.G2.0,Finans - Gökhan Akar
+1.2.G2.2,1.2.G2.0,Finans - Veli Kurt
+1.2.G2.3,1.2.G2.0,Finans - Canan Kaya
+1.2.G2.4,1.2.G2.0,Finans - Seda Tan
+1.2.G3.0,1.2,Finans Takım 3 (Yönetici) - Tuncay Işık
+1.2.G3.1,1.2.G3.0,Finans - Merve Bayraktar
+1.2.G3.2,1.2.G3.0,Finans - Deniz Demirtaş
+1.2.G3.3,1.2.G3.0,Finans - Fatma Polat
+1.2.G3.4,1.2.G3.0,Finans - Kaan Özpolat
+1.2.G4.0,1.2,Finans Takım 4 (Yönetici) - Burcu Akıncı
+1.2.G4.1,1.2.G4.0,Finans - Derya Koç
+1.2.G4.2,1.2.G4.0,Finans - Meltem Mutlu
+1.2.G4.3,1.2.G4.0,Finans - Pelin Erdoğan
+1.2.G4.4,1.2.G4.0,Finans - Ayşe Şahin
+1.2.G5.0,1.2,Finans Takım 5 (Yönetici) - Sinem Durmaz
+1.2.G5.1,1.2.G5.0,Finans - Gamze Başaran
+1.3,1,Satış (Yönetici) - Kenan Keskin
+1.3.G1.0,1.3,Satış Takım 1 (Yönetici) - Oğuz Türkmen
+1.3.G1.1,1.3.G1.0,Satış - Ece Aydın
+1.3.G1.2,1.3.G1.0,Satış - Sibel Toprak
+1.3.G1.3,1.3.G1.0,Satış - İlker Doğan
+1.3.G1.4,1.3.G1.0,Satış - Cem Yıldırım
+1.3.G2.0,1.3,Satış Takım 2 (Yönetici) - Deniz Ergin
+1.3.G2.1,1.3.G2.0,Satış - Mustafa Arslan
+1.3.G2.2,1.3.G2.0,Satış - Seda Karaca
+1.3.G2.3,1.3.G2.0,Satış - Tolunay Göksu
+1.3.G2.4,1.3.G2.0,Satış - Elif Yıldız
+1.3.G3.0,1.3,Satış Takım 3 (Yönetici) - Cem Yıldırım
+1.3.G3.1,1.3.G3.0,Satış - Deniz Şahin
+1.3.G3.2,1.3.G3.0,Satış - Ömer Özdemir
+1.3.G3.3,1.3.G3.0,Satış - Kerem Güler
+1.3.G3.4,1.3.G3.0,Satış - Tolga Bulut
+1.3.G4.0,1.3,Satış Takım 4 (Yönetici) - Deniz Demirtaş
+1.3.G4.1,1.3.G4.0,Satış - Furkan Çoban
+1.3.G4.2,1.3.G4.0,Satış - Sibel Toprak
+1.3.G4.3,1.3.G4.0,Satış - Kenan Keskin
+1.3.G4.4,1.3.G4.0,Satış - Emre Yıldız
+1.3.G5.0,1.3,Satış Takım 5 (Yönetici) - Meltem Mutlu
+1.3.G5.1,1.3.G5.0,Satış - Bora Bozkurt
+1.4,1,Pazarlama (Yönetici) - Zeynep Şen
+1.4.G1.0,1.4,Pazarlama Takım 1 (Yönetici) - Selin Güneş
+1.4.G1.1,1.4.G1.0,Pazarlama - Zeynep Çelik
+1.4.G1.2,1.4.G1.0,Pazarlama - Gökhan Akar
+1.4.G1.3,1.4.G1.0,Pazarlama - Yusuf Karataş
+1.4.G1.4,1.4.G1.0,Pazarlama - Veli Polat
+1.4.G2.0,1.4,Pazarlama Takım 2 (Yönetici) - Murat Eren
+1.4.G2.1,1.4.G2.0,Pazarlama - Umut Avcı
+1.4.G2.2,1.4.G2.0,Pazarlama - Ahmet Tan
+1.4.G2.3,1.4.G2.0,Pazarlama - Hande Kılıç
+1.4.G2.4,1.4.G2.0,Pazarlama - Yasemin Özkan
+1.4.G3.0,1.4,Pazarlama Takım 3 (Yönetici) - Ayşe Demir
+1.4.G3.1,1.4.G3.0,Pazarlama - Hakan Aksoy
+1.4.G3.2,1.4.G3.0,Pazarlama - Gamze Başaran
+1.4.G3.3,1.4.G3.0,Pazarlama - Ahmet Şahin
+1.4.G3.4,1.4.G3.0,Pazarlama - Büşra Alkan
+1.4.G4.0,1.4,Pazarlama Takım 4 (Yönetici) - Can Çelik
+1.4.G4.1,1.4.G4.0,Pazarlama - Halil Özer
+1.4.G4.2,1.4.G4.0,Pazarlama - Mehmet Yılmaz
+1.4.G4.3,1.4.G4.0,Pazarlama - Ali Kaya
+1.4.G4.4,1.4.G4.0,Pazarlama - Serkan Öztürk
+1.4.G5.0,1.4,Pazarlama Takım 5 (Yönetici) - Aslı Kurt
+1.4.G5.1,1.4.G5.0,Pazarlama - Büşra Alkan
+1.4.G5.2,1.4.G5.0,Pazarlama - Seda Karaca
+1.4.G5.3,1.4.G5.0,Pazarlama - Ahmet Doğan
+1.4.G5.4,1.4.G5.0,Pazarlama - Elif Polat
+1.5,1,İnsan Kaynakları (Yönetici) - Elif Yılmaz
+1.5.G1.0,1.5,İnsan Kaynakları Takım 1 (Yönetici) - Yasemin Özkan
+1.5.G1.1,1.5.G1.0,İnsan Kaynakları - Ali Demir
+1.5.G1.2,1.5.G1.0,İnsan Kaynakları - Tuğçe Kılıç
+1.5.G1.3,1.5.G1.0,İnsan Kaynakları - Emre Aslan
+1.5.G1.4,1.5.G1.0,İnsan Kaynakları - Cansu Koç
+1.5.G2.0,1.5,İnsan Kaynakları Takım 2 (Yönetici) - Barış Yıldız
+1.5.G2.1,1.5.G2.0,İnsan Kaynakları - Selin Demirtaş
+1.5.G2.2,1.5.G2.0,İnsan Kaynakları - Onur Polat
+1.5.G2.3,1.5.G2.0,İnsan Kaynakları - Nur Kara
+1.5.G2.4,1.5.G2.0,İnsan Kaynakları - Halil Tuncel

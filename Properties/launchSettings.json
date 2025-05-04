@@ -1,6 +1,6 @@
-{
+﻿{
   "profiles": {
-    "veri_y": {
+    "veri_yapilari": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

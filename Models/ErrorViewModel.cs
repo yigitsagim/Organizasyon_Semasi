@@ -1,4 +1,4 @@
-namespace veri_y.Models;
+namespace veri_yapilari.Models;
 
 public class ErrorViewModel
 {
