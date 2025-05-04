@@ -780,17 +780,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1117"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Apr 2025 21:18:34 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/veri_yapilari/veri_yapilari.92ubt0ga2p.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\veri_yapilari.92ubt0ga2p.bundle.scp.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"92ubt0ga2p"},{"Name":"integrity","Value":"sha256-D9aKMQufcHT89MkfXmp\u002Bw75Mn7xVfljF5edkqqld07U="},{"Name":"label","Value":"_content/veri_yapilari/veri_yapilari.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1082"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022D9aKMQufcHT89MkfXmp\u002Bw75Mn7xVfljF5edkqqld07U=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Apr 2025 21:18:57 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/veri_yapilari/veri_yapilari.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\veri_yapilari.92ubt0ga2p.bundle.scp.css'))</AssetFile>
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\veri_yapilari.o2vm8lpyv6.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-D9aKMQufcHT89MkfXmp\u002Bw75Mn7xVfljF5edkqqld07U="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1082"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022D9aKMQufcHT89MkfXmp\u002Bw75Mn7xVfljF5edkqqld07U=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Apr 2025 21:18:57 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0NKgOWjF2pYNje2tVKlvQhhjqTTJAJw2/L9qdYAbFw4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1131"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220NKgOWjF2pYNje2tVKlvQhhjqTTJAJw2/L9qdYAbFw4=\u0022"},{"Name":"Last-Modified","Value":"Sun, 04 May 2025 11:13:29 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/veri_yapilari/veri_yapilari.o2vm8lpyv6.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\veri_yapilari.o2vm8lpyv6.bundle.scp.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"o2vm8lpyv6"},{"Name":"integrity","Value":"sha256-0NKgOWjF2pYNje2tVKlvQhhjqTTJAJw2/L9qdYAbFw4="},{"Name":"label","Value":"_content/veri_yapilari/veri_yapilari.bundle.scp.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1131"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00220NKgOWjF2pYNje2tVKlvQhhjqTTJAJw2/L9qdYAbFw4=\u0022"},{"Name":"Last-Modified","Value":"Sun, 04 May 2025 11:13:29 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

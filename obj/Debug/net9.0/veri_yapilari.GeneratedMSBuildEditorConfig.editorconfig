@@ -9,61 +9,61 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = veri_yapilari
 build_property.RootNamespace = veri_yapilari
-build_property.ProjectDir = /Users/berra/Desktop/veri_yapilari/
+build_property.ProjectDir = C:\Users\Eren\Documents\GitHub\Organizasyon_Semasi\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/berra/Desktop/veri_yapilari
+build_property.MSBuildProjectDirectory = C:\Users\Eren\Documents\GitHub\Organizasyon_Semasi
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Home/bilgi_t.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9iaWxnaV90LmNzaHRtbA==
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Home/bilgi_t.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxiaWxnaV90LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Home/finans.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9maW5hbnMuY3NodG1s
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Home/finans.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxmaW5hbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Home/insan_k.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9pbnNhbl9rLmNzaHRtbA==
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Home/insan_k.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbnNhbl9rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Home/pazarlama_d.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9wYXphcmxhbWFfZC5jc2h0bWw=
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Home/pazarlama_d.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxwYXphcmxhbWFfZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Home/satis_d.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9zYXRpc19kLmNzaHRtbA==
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Home/satis_d.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzYXRpc19kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/berra/Desktop/veri_yapilari/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-ksndxualel
+[C:/Users/Eren/Documents/GitHub/Organizasyon_Semasi/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-9yew30qj46
