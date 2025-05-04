@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4B/lVNYFBUc=",
+  "dgSpecHash": "xNyS7sqLSQY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eren\\Documents\\GitHub\\Organizasyon_Semasi\\veri_yapilari.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Eren\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.203\\microsoft.net.sdk.compilers.toolset.9.0.203.nupkg.sha512"
-  ],
+  "projectFilePath": "/Users/berra/Desktop/veri_yapilari/veri_yapilari.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
