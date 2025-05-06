@@ -22,6 +22,7 @@ namespace veri_yapilari.kodlarim
             string unvan = FormVerileri0.EkleGorev.Trim();
 
             string prefix = GetPrefix(departman);
+<<<<<<< HEAD
             string yeni_id = "";
             string parent_id = "";
 
@@ -51,28 +52,53 @@ namespace veri_yapilari.kodlarim
 
                 // Boş (placeholder) yöneticiler varsa sil
                 var eskiBosYoneticiler = calisanlar
+=======
+            string yeni_id, parent_id;
+
+            if (unvan == "Yönetici")
+            {
+                yeni_id = prefix + "00";
+                parent_id = "99";
+
+                // Boş placeholder varsa sil
+                var eskiYoneticiler = calisanlar
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
                     .Where(x => x.Value[0] == departman && x.Value[3] == "Yönetici" &&
                                 string.IsNullOrWhiteSpace(x.Value[1]) && string.IsNullOrWhiteSpace(x.Value[2]))
                     .Select(x => x.Key)
                     .ToList();
 
+<<<<<<< HEAD
                 foreach (var key in eskiBosYoneticiler)
                     calisanlar.Remove(key);
 
                 yeni_id = prefix + "00";
                 parent_id = "99";
 
+=======
+                foreach (var key in eskiYoneticiler)
+                    calisanlar.Remove(key);
+
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
                 calisanlar[yeni_id] = new[] { departman, ad, soyad, "Yönetici", parent_id };
             }
             else
             {
+<<<<<<< HEAD
                 // Departmanın yöneticisi varsa parent_id olarak belirle
+=======
+                // Yönetici var mı?
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
                 var yonetici = calisanlar
                     .FirstOrDefault(x => x.Value[0] == departman && x.Value[3] == "Yönetici");
 
                 parent_id = string.IsNullOrEmpty(yonetici.Key) ? "" : yonetici.Key;
 
+<<<<<<< HEAD
                 // Yeni ID oluştur
+=======
+                // ID üretimi
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
                 var mevcutIdler = calisanlar.Keys
                     .Where(k => k.StartsWith(prefix))
                     .Select(k => int.TryParse(k, out int num) ? num : 0);
@@ -85,7 +111,10 @@ namespace veri_yapilari.kodlarim
 
                 calisanlar[yeni_id] = new[] { departman, ad, soyad, unvan, parent_id };
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
             if (HttpContext.Current.CurrentHandler is Page page)
             {
                 string mesaj = $"Eklendi: {ad} {soyad} → ID: {yeni_id} / {departman} / {unvan}";
@@ -95,7 +124,10 @@ namespace veri_yapilari.kodlarim
                     $"alert('{mesaj}');",
                     true
                 );
+<<<<<<< HEAD
 
+=======
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
                 SaveToCsv();
             }
         }
@@ -103,10 +135,17 @@ namespace veri_yapilari.kodlarim
         private static void LoadFromCsv()
         {
             calisanlar.Clear();
+<<<<<<< HEAD
             string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
             if (!File.Exists(path)) return;
 
             foreach (string line in File.ReadAllLines(path).Skip(1))
+=======
+            var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+            if (!File.Exists(path)) return;
+
+            foreach (var line in File.ReadAllLines(path).Skip(1))
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
             {
                 var parts = line.Split(';');
                 if (parts.Length != 6) continue;
@@ -120,7 +159,11 @@ namespace veri_yapilari.kodlarim
 
         private static void SaveToCsv()
         {
+<<<<<<< HEAD
             string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+=======
+            var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
             var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
 
             foreach (var kvp in calisanlar)
@@ -146,4 +189,7 @@ namespace veri_yapilari.kodlarim
         }
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb

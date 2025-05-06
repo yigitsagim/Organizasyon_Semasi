@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
+<<<<<<< HEAD
+=======
+using System.Web.UI;
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
 
 namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilecegini gosteriyor
 {
@@ -26,7 +30,11 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
 
             string ad = FormVerileri0.GuncelAd.Trim();
             string soyad = FormVerileri0.GuncelSoyad.Trim();
+<<<<<<< HEAD
             string new_dep = FormVerileri0.GuncelYeniDepartman;
+=======
+            string new_dep = FormVerileri0 .GuncelYeniDepartman;
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
             string new_rol = FormVerileri0.GuncelYeniGorev;
 
             var matches = calisanlar
@@ -49,6 +57,30 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
 
             if (new_rol == "Yönetici")
             {
+<<<<<<< HEAD
+=======
+                // Yeni departmanda zaten başka bir yönetici varsa uyarı ver
+                var mevcutYoneticiVar = calisanlar.Any(x =>
+                    x.Value[0] == new_dep &&
+                    x.Value[3] == "Yönetici" &&
+                    !(x.Value[1] == old_ad && x.Value[2] == old_soyad));
+
+                if (mevcutYoneticiVar)
+                {
+                    if (HttpContext.Current.CurrentHandler is Page hataSayfasi)
+                    {
+                        hataSayfasi.ClientScript.RegisterStartupScript(
+                            hataSayfasi.GetType(),
+                            "yoneticiUyari",
+                            $"alert('HATA: {new_dep} departmanında zaten bir yönetici bulunmaktadır.');",
+                            true
+                        );
+                    }
+                    return;
+                }
+
+
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
                 new_id = prefix + "00";
                 new_parent = "99";
 
@@ -100,6 +132,19 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
                     calisanlar[old_id] = new[] { new_dep, old_ad, old_soyad, new_rol, new_parent };
                 }
             }
+<<<<<<< HEAD
+=======
+            if (HttpContext.Current.CurrentHandler is Page page)
+            {
+                string mesaj = $"Güncellendi: {old_ad} {old_soyad} → ID: {new_id} / {new_dep} / {new_rol}";
+                page.ClientScript.RegisterStartupScript(
+                    page.GetType(),
+                    "updateMsg",
+                    $"alert('{mesaj}');",
+                    true
+                );
+            }
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
 
             SaveToCsv();
         }

@@ -72,6 +72,7 @@ C:\Users\akman karoser\Desktop\berrai\veri_yapilari\veri_yapilari\bin\tr\Microso
 C:\Users\akman karoser\Desktop\berrai\veri_yapilari\veri_yapilari\obj\Debug\veri_yap.60BDE327.Up2Date
 C:\Users\akman karoser\Desktop\berrai\veri_yapilari\veri_yapilari\obj\Debug\veri_yapilari.dll
 C:\Users\akman karoser\Desktop\berrai\veri_yapilari\veri_yapilari\obj\Debug\veri_yapilari.pdb
+<<<<<<< HEAD
 C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\bin\veri_yapilari.dll.config
 C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\bin\veri_yapilari.dll
 C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\bin\veri_yapilari.pdb
@@ -146,3 +147,5 @@ C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\obj\Debug\veri_yapi
 C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\obj\Debug\veri_yap.60BDE327.Up2Date
 C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\obj\Debug\veri_yapilari.dll
 C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\obj\Debug\veri_yapilari.pdb
+=======
+>>>>>>> d826f30c784e237daa4b93359e8e7d0384d9e2cb
