@@ -146,3 +146,7 @@ C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\obj\Debug\veri_yapi
 C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\obj\Debug\veri_yap.60BDE327.Up2Date
 C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\obj\Debug\veri_yapilari.dll
 C:\Users\Berkan Kocaman\Desktop\veri_yapilari3\veri_yapilari\obj\Debug\veri_yapilari.pdb
+C:\Users\yigit\OneDrive\Masaüstü\Organizasyon_Semasi-main\Organizasyon_Semasi-main\veri_yapilari\obj\Debug\veri_yapilari.csproj.AssemblyReference.cache
+C:\Users\yigit\OneDrive\Masaüstü\Organizasyon_Semasi-main\Organizasyon_Semasi-main\veri_yapilari\obj\Debug\veri_yapilari.csproj.CoreCompileInputs.cache
+C:\Users\yigit\OneDrive\Masaüstü\Organizasyon_Semasi-main\Organizasyon_Semasi-main\veri_yapilari\obj\Debug\veri_yapilari.dll
+C:\Users\yigit\OneDrive\Masaüstü\Organizasyon_Semasi-main\Organizasyon_Semasi-main\veri_yapilari\obj\Debug\veri_yapilari.pdb

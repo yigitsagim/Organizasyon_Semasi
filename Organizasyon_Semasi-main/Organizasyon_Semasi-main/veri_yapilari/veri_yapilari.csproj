@@ -157,6 +157,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="App_Data\calisanlar1.csv" />
     <Content Include="App_Data\calisanlar2.csv" />
+    <Content Include="App_Data\departments.csv" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -246,6 +247,7 @@
       <DependentUpon>InsanKaynaklari.aspx</DependentUpon>
     </Compile>
     <Compile Include="kodlarim\AraCalisan.cs" />
+    <Compile Include="kodlarim\departman.cs" />
     <Compile Include="kodlarim\DepartmanIslemleri.cs" />
     <Compile Include="kodlarim\EkleCalisan.cs" />
     <Compile Include="kodlarim\FormVerileri0.cs" />
