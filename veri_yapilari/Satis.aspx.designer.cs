@@ -11,7 +11,7 @@ namespace veri_yapilari
 {
 
 
-    public partial class Pazarlama
+    public partial class Satis
     {
     }
 }

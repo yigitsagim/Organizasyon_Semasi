@@ -79,8 +79,8 @@ namespace veri_yapilari
             SilCalisan.Sil();
         }
 
-       
-            protected void btnAraCalisan_Click(object sender, EventArgs e)
+
+        protected void btnAraCalisan_Click(object sender, EventArgs e)
         {
             FormVerileri0.AramaAdSoyad = txtAra.Text.Trim();
 
@@ -100,12 +100,15 @@ namespace veri_yapilari
             lblBilgi.Text = sonuc;
         }
 
-        
+
 
         protected void btnDepartmanEkle_Click(object sender, EventArgs e)
         {
             FormVerileri0.YeniDepartman = txtYeniDepartman.Text.Trim();
-            DepartmanIslemleri.DepEkle();
+
+            DepartmanIslemleri islemler = new DepartmanIslemleri();
+            islemler.DepEkle();
         }
+
     }
 }
