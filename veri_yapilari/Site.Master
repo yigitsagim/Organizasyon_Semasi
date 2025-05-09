@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="veri_yapilari.Site" %>
+<!DOCTYPE html>
+<html lang="tr">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Organizasyon Şeması</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 0; padding: 0; }
+        .navbar { background-color: #2C3E50; color: white; padding: 10px 20px; }
+        .main-container { display: flex; width: 100%; padding: 30px; box-sizing: border-box; }
+        .sidebar { width: 25%; background-color: #34495E; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 8px; color: white; margin-right: 20px; }
+        .sidebar h2 { color: white; margin-bottom: 20px; }
+        .sidebar .btn { width: 100%; margin-bottom: 10px; font-size: 16px; border-radius: 8px; border: none; background-color: #2C3E50; color: white; }
+        .sidebar .btn:hover { background-color: #1ABC9C; border: 1px solid #148f77; }
+        .form-container { width: 75%; background-color: white; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form runat="server">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="Default.aspx">X Şirketi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="BT.aspx">BT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Satis.aspx">Satış</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Pazarlama.aspx">Pazarlama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="InsanKaynaklari.aspx">İnsan Kaynakları</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Finans.aspx">Finans</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+        <div class="main-container">
+            <div class="sidebar">
+                    <h4 style="color: white;">İşlemler</h4>
+
+                <asp:Button ID="btnEkle" runat="server" Text="Çalışan Ekle" CssClass="btn" OnClick="btnEkle_Click" />
+                <asp:Button ID="btnSil" runat="server" Text="Çalışan Sil" CssClass="btn" OnClick="btnSil_Click" />
+                <asp:Button ID="btnGuncelle" runat="server" Text="Çalışan Güncelle" CssClass="btn" OnClick="btnGuncelle_Click" />
+                <asp:Button ID="btnAra" runat="server" Text="Çalışan Ara" CssClass="btn" OnClick="btnAra_Click" />
+                <asp:Button ID="btnDepartman" runat="server" Text="Departman Ekle" CssClass="btn" OnClick="btnDepartman_Click" />
+            </div>
+
+            <div class="form-container">
+                <asp:Panel ID="panelEkle" runat="server" Visible="false">
+                    <h4>Çalışan Ekle</h4>
+                    <asp:TextBox ID="txtEkleAd" runat="server" CssClass="form-control mb-2" placeholder="Ad" />
+                    <asp:TextBox ID="txtekleSoyad" runat="server" CssClass="form-control mb-2" placeholder="Soyad" />
+                    <asp:DropDownList ID="ddlDepartman" runat="server" CssClass="form-control mb-2">
+                        <asp:ListItem>Finans</asp:ListItem>
+                        <asp:ListItem>BT</asp:ListItem>
+                        <asp:ListItem>Pazarlama</asp:ListItem>
+                         <asp:ListItem>Satış</asp:ListItem>
+                         <asp:ListItem>İnsan Kaynakları</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlEkleGorev" runat="server" CssClass="form-control mb-3">
+                        <asp:ListItem>Çalışan</asp:ListItem>
+                        <asp:ListItem>Yönetici</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:Button ID="btnKaydet" runat="server" Text="Çalışan Ekle" CssClass="btn btn-secondary" OnClick="btnKaydet_Click" />
+                </asp:Panel>
+
+                <asp:Panel ID="panelSil" runat="server" Visible="false">
+                    <h4>Çalışan Sil</h4>
+                    <asp:TextBox ID="txtSilAd" runat="server" CssClass="form-control mb-2" placeholder="Ad" />
+                    <asp:TextBox ID="txtSilSoyad" runat="server" CssClass="form-control mb-2" placeholder="Soyad" />
+
+                    <asp:Button ID="btnSilCalisan" runat="server" Text="Sil" CssClass="btn btn-secondary" OnClick="btnSilCalisan_Click"/>
+                </asp:Panel>
+
+                <asp:Panel ID="panelGuncelle" runat="server" Visible="false">
+                    <h4>Çalışan Güncelle</h4>
+                    <asp:TextBox ID="txtGuncelAd" runat="server" CssClass="form-control mb-2" placeholder="Ad" />
+                    <asp:TextBox ID="txtGuncelSoyad" runat="server" CssClass="form-control mb-2" placeholder="Soyad" />
+                    <asp:DropDownList ID="ddlGuncelleNewDep" runat="server" CssClass="form-control mb-3">
+                       <asp:ListItem>Finans</asp:ListItem>
+                        <asp:ListItem>BT</asp:ListItem>
+                        <asp:ListItem>Pazarlama</asp:ListItem>
+                        <asp:ListItem>Satış</asp:ListItem>
+                        <asp:ListItem>İnsan Kaynakları</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlGuncelleGorev" runat="server" CssClass="form-control mb-3">
+                    <asp:ListItem>Çalışan</asp:ListItem>
+                    <asp:ListItem>Yönetici</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:Button ID="btnGuncelleCalisan" runat="server" Text="Çalışanı Güncelle" CssClass="btn btn-secondary" OnClick="btnGuncelleCalisan_Click" />
+                </asp:Panel>
+
+                <asp:Panel ID="panelAra" runat="server" Visible="false">
+                    <h4>Çalışan Ara</h4>
+                    <asp:TextBox ID="txtAra" runat="server" CssClass="form-control mb-2" placeholder="Ad Soyad" />
+                    <asp:Button ID="btnAraCalisan" runat="server" Text="Çalışanı Bul" CssClass="btn btn-secondary" OnClick="btnAraCalisan_Click"/>
+                     <!-- Alt satırda kutu gibi bilgi gösterecek label -->
+                    <asp:Label ID="lblBilgi" runat="server" CssClass="form-control mt-2" />
+
+                </asp:Panel>
+
+                <asp:Panel ID="panelDepartman" runat="server" Visible="false">
+                    <h4>Departman Ekle</h4>
+                    <asp:TextBox ID="txtYeniDepartman" runat="server" CssClass="form-control mb-2" placeholder="Departman Adı" />
+                    <asp:Button ID="btnDepartmanEkle" runat="server" Text="Ekle" CssClass="btn btn-secondary" OnClick="btnDepartmanEkle_Click" />
+                </asp:Panel>
+
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>
