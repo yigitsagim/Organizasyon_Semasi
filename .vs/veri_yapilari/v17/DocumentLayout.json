@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\app_data\\calisanlar2.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\app_data\\calisanlar2.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|c:\\users\\akman karoser\\desktop\\organizasyon_semasi-main\\veri_yapilari\\kodlarim\\departmanislemleri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\departmanislemleri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|c:\\users\\akman karoser\\desktop\\organizasyon_semasi-main\\veri_yapilari\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\guncellecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\guncellecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GuncelleCalisan.cs",
+              "DocumentMoniker": "C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
+              "RelativeDocumentMoniker": "veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
+              "ToolTip": "C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
+              "RelativeToolTip": "veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
+              "ViewState": "AgIAABEBAAAAAAAAAAAwwC0BAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T21:05:30.376Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DepartmanIslemleri.cs",
+              "DocumentMoniker": "C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\DepartmanIslemleri.cs",
+              "RelativeDocumentMoniker": "veri_yapilari\\kodlarim\\DepartmanIslemleri.cs",
+              "ToolTip": "C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\DepartmanIslemleri.cs",
+              "RelativeToolTip": "veri_yapilari\\kodlarim\\DepartmanIslemleri.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCcAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T23:41:58.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "calisanlar2.csv",
+              "DocumentMoniker": "C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\App_Data\\calisanlar2.csv",
+              "RelativeDocumentMoniker": "veri_yapilari\\App_Data\\calisanlar2.csv",
+              "ToolTip": "C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\App_Data\\calisanlar2.csv",
+              "RelativeToolTip": "veri_yapilari\\App_Data\\calisanlar2.csv",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2025-05-06T16:11:07.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Site.Master.cs",
+              "DocumentMoniker": "C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\Site.Master.cs",
+              "RelativeDocumentMoniker": "veri_yapilari\\Site.Master.cs",
+              "ToolTip": "C:\\Users\\akman karoser\\Desktop\\Organizasyon_Semasi-main\\veri_yapilari\\Site.Master.cs",
+              "RelativeToolTip": "veri_yapilari\\Site.Master.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:21:28.55Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
