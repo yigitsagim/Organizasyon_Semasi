@@ -3,22 +3,177 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
+using System.Web.UI;
 
-namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilecegini gosteriyor
+namespace veri_yapilari.kodlarim
 {
-    public static class DictionaryExtensions
+    public class Node
     {
-        public static void RemoveAll<TKey, TValue>(this Dictionary<TKey, TValue> dict, Func<KeyValuePair<TKey, TValue>, bool> predicate)
+        public string Key;
+        public string[] Value;
+        public Node Next;
+
+        public Node(string key, string[] value)
         {
-            var toRemove = dict.Where(predicate).Select(kvp => kvp.Key).ToList();
-            foreach (var key in toRemove)
-                dict.Remove(key);
+            Key = key;
+            Value = value;
+            Next = null;
         }
     }
+
+    public class NodeHashTable
+    {
+        private const int size = 100;
+        private Node[] buckets;
+
+        public NodeHashTable()
+        {
+            buckets = new Node[size];
+        }
+
+        private int GetIndex(string key)
+        {
+            return Math.Abs(key.GetHashCode()) % size;
+        }
+
+        public void AddOrUpdate(string key, string[] value)
+        {
+            int index = GetIndex(key);
+            Node current = buckets[index];
+
+            while (current != null)
+            {
+                if (current.Key == key)
+                {
+                    current.Value = value;
+                    return;
+                }
+                current = current.Next;
+            }
+
+            Node newNode = new Node(key, value);
+            newNode.Next = buckets[index];
+            buckets[index] = newNode;
+        }
+
+        public bool ContainsKey(string key)
+        {
+            int index = GetIndex(key);
+            Node current = buckets[index];
+
+            while (current != null)
+            {
+                if (current.Key == key)
+                    return true;
+                current = current.Next;
+            }
+            return false;
+        }
+
+        public string[] Get(string key)
+        {
+            int index = GetIndex(key);
+            Node current = buckets[index];
+
+            while (current != null)
+            {
+                if (current.Key == key)
+                    return current.Value;
+                current = current.Next;
+            }
+            return null;
+        }
+
+        public IEnumerable<KeyValuePair<string, string[]>> GetAll()
+        {
+            for (int i = 0; i < size; i++)
+            {
+                Node current = buckets[i];
+                while (current != null)
+                {
+                    yield return new KeyValuePair<string, string[]>(current.Key, current.Value);
+                    current = current.Next;
+                }
+            }
+        }
+
+        public List<KeyValuePair<string, string[]>> Where(Func<KeyValuePair<string, string[]>, bool> predicate)
+        {
+            List<KeyValuePair<string, string[]>> results = new List<KeyValuePair<string, string[]>>();
+
+            for (int i = 0; i < size; i++)
+            {
+                Node current = buckets[i];
+                while (current != null)
+                {
+                    var kvp = new KeyValuePair<string, string[]>(current.Key, current.Value);
+                    if (predicate(kvp))
+                        results.Add(kvp);
+                    current = current.Next;
+                }
+            }
+
+            return results;
+        }
+
+        public void Remove(string key)
+        {
+            int index = GetIndex(key);
+            Node current = buckets[index];
+            Node previous = null;
+
+            while (current != null)
+            {
+                if (current.Key == key)
+                {
+                    if (previous == null)
+                        buckets[index] = current.Next;
+                    else
+                        previous.Next = current.Next;
+                    return;
+                }
+                previous = current;
+                current = current.Next;
+            }
+        }
+
+        public void RemoveAll(Func<KeyValuePair<string, string[]>, bool> predicate)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                Node current = buckets[i];
+                Node previous = null;
+
+                while (current != null)
+                {
+                    var kvp = new KeyValuePair<string, string[]>(current.Key, current.Value);
+                    if (predicate(kvp))
+                    {
+                        if (previous == null)
+                            buckets[i] = current.Next;
+                        else
+                            previous.Next = current.Next;
+
+                        current = previous == null ? buckets[i] : previous.Next;
+                        continue;
+                    }
+
+                    previous = current;
+                    current = current.Next;
+                }
+            }
+        }
+
+        public void Clear()
+        {
+            buckets = new Node[size];
+        }
+    }
+
     public static class GuncelleCalisan
     {
         private static string DataFileVirtual = "~/App_Data/calisanlar2.csv";
-        private static Dictionary<string, string[]> calisanlar = new Dictionary<string, string[]>();
+        public static NodeHashTable calisanlar = new NodeHashTable();
 
         public static void Guncelle()
         {
@@ -28,6 +183,8 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
             string soyad = FormVerileri0.GuncelSoyad.Trim();
             string new_dep = FormVerileri0.GuncelYeniDepartman;
             string new_rol = FormVerileri0.GuncelYeniGorev;
+
+            var aktifSayfa = HttpContext.Current.CurrentHandler as Page;
 
             var matches = calisanlar
                 .Where(kvp => Normalize(kvp.Value[1]) == Normalize(ad) && Normalize(kvp.Value[2]) == Normalize(soyad))
@@ -49,6 +206,25 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
 
             if (new_rol == "Yönetici")
             {
+                bool mevcutYoneticiVar = calisanlar.Where(x =>
+                x.Value[0] == new_dep &&
+                x.Value[3] == "Yönetici" &&
+                !(x.Value[1] == old_ad && x.Value[2] == old_soyad) &&
+                !(string.IsNullOrWhiteSpace(x.Value[1]) && string.IsNullOrWhiteSpace(x.Value[2])) // boş isimli yöneticileri sayma
+                ).Any();
+
+                if (mevcutYoneticiVar)
+                {
+                    ScriptManager.RegisterStartupScript(
+                  HttpContext.Current.CurrentHandler as Page,
+                  typeof(Page),
+                  "yoneticiUyari",
+                  $"alert('HATA: {new_dep} departmanında zaten bir yönetici bulunmaktadır.');",
+                  true);
+                    return;
+
+                }
+
                 new_id = prefix + "00";
                 new_parent = "99";
 
@@ -58,31 +234,34 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
 
                 if (new_id != old_id)
                 {
-                    calisanlar[old_id] = new[] { old_dep, "", "", "Yönetici", "0" };
+                    // Yöneticiye geçiyorsa → eski ID silinsin, bağlı kişiler güncellensin
+                    calisanlar.Remove(old_id);
 
-                    foreach (var key in calisanlar.Keys.ToList())
+                    foreach (var kvp in calisanlar.GetAll())
                     {
-                        if (calisanlar[key][4] == old_id)
-                            calisanlar[key][4] = "0";
+                        if (kvp.Value[4] == old_id)
+                            kvp.Value[4] = "0";
                     }
 
-                    calisanlar[new_id] = new[] { new_dep, old_ad, old_soyad, "Yönetici", new_parent };
+                    calisanlar.AddOrUpdate(new_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent }); // ✅ Rol burada dinamik
                 }
                 else
                 {
-                    calisanlar[old_id] = new[] { new_dep, old_ad, old_soyad, "Yönetici", new_parent };
+                    // Sadece departman/rol değişikliği → aynı ID’de kalır, sadece bilgileri günceller
+                    calisanlar.AddOrUpdate(old_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
                 }
+
             }
             else
             {
                 var yonetici = calisanlar
-                    .FirstOrDefault(x => x.Value[0] == new_dep && x.Value[3] == "Yönetici");
+                    .Where(x => x.Value[0] == new_dep && x.Value[3] == "Yönetici").FirstOrDefault();
 
-                new_parent = string.IsNullOrEmpty(yonetici.Key) ? "" : yonetici.Key;
+                new_parent = yonetici.Key ?? "";
 
-                var tumIdler = calisanlar.Keys
-                    .Where(k => k.StartsWith(prefix))
-                    .Select(int.Parse);
+                var tumIdler = calisanlar.GetAll()
+                    .Where(k => k.Key.StartsWith(prefix))
+                    .Select(k => int.Parse(k.Key));
 
                 int candidate = tumIdler.Any() ? tumIdler.Max() + 1 : int.Parse(prefix + "01");
                 while (calisanlar.ContainsKey(candidate.ToString()))
@@ -92,17 +271,39 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
 
                 if (new_id != old_id)
                 {
-                    calisanlar[old_id] = new[] { old_dep, "", "", "Yönetici", "99" };
-                    calisanlar[new_id] = new[] { new_dep, old_ad, old_soyad, new_rol, new_parent };
+                    calisanlar.Remove(old_id);
+
+                    foreach (var kvp in calisanlar.GetAll())
+                    {
+                        if (kvp.Value[4] == old_id)
+                            kvp.Value[4] = "0";
+                    }
+
+                    calisanlar.AddOrUpdate(new_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
                 }
                 else
                 {
-                    calisanlar[old_id] = new[] { new_dep, old_ad, old_soyad, new_rol, new_parent };
+                    calisanlar.AddOrUpdate(old_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
                 }
             }
 
-            SaveToCsv();
+        
+
+        SaveToCsv();
+
+            ScriptManager.RegisterStartupScript(
+                HttpContext.Current.CurrentHandler as Page,
+                typeof(Page),
+                "guncellemeBasarili",
+                $"alert(\"{ad} {soyad} başarıyla güncellendi.\\nEski: {old_dep} ({old_rol})\\nYeni: {new_dep} ({new_rol})\");",
+                true
+            );
+
+            return;
+
         }
+
+
 
         private static void LoadDataFromCsv()
         {
@@ -115,10 +316,9 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
                 var parts = line.Split(';');
                 if (parts.Length != 6) continue;
 
-                calisanlar[parts[0]] = new[]
-                {
-                    parts[1], parts[2], parts[3], parts[4], parts[5]
-                };
+                string key = parts[0];
+                string[] value = new[] { parts[1], parts[2], parts[3], parts[4], parts[5] };
+                calisanlar.AddOrUpdate(key, value);
             }
         }
 
@@ -127,7 +327,7 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
             var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
             var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
 
-            foreach (var kvp in calisanlar)
+            foreach (var kvp in calisanlar.GetAll())
             {
                 lines.Add($"{kvp.Key};{kvp.Value[0]};{kvp.Value[1]};{kvp.Value[2]};{kvp.Value[3]};{kvp.Value[4]}");
             }
@@ -150,13 +350,6 @@ namespace veri_yapilari.kodlarim //altta csvnin nasil yuklenip tekrar kaydedilec
                 case "İnsan Kaynakları": return "5";
                 default: return "0";
             }
-        }
-
-        private static void RemoveAll(this Dictionary<string, string[]> dict, Func<KeyValuePair<string, string[]>, bool> predicate)
-        {
-            var toRemove = dict.Where(predicate).Select(x => x.Key).ToList();
-            foreach (var key in toRemove)
-                dict.Remove(key);
         }
     }
 }

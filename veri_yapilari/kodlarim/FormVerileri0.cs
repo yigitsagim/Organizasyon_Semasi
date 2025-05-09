@@ -22,6 +22,8 @@ namespace veri_yapilari.kodlarim
         public static string SilSoyad { get; set; }
 
         public static string AramaAdSoyad { get; set; }
+        public static string AramaID { get; set; }
+
 
         public static string YeniDepartman { get; set; }
     }

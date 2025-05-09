@@ -20,32 +20,38 @@ namespace veri_yapilari
         {
             if (!IsPostBack)
             {
-                string yol = Server.MapPath("~/App_Data/calisanlar2.csv");
-                var satirlar = File.ReadAllLines(yol).Skip(1);
-                var kisiler = satirlar
-                    .Select(l => l.Split(';'))
-                    .Where(p => p.Length >= 6)
-                    .Select(p => new Kisi
-                    {
-                        ID = p[0].Trim(),
-                        Departman = p[1].Trim(),
-                        Ad = p[2].Trim(),
-                        Soyad = p[3].Trim(),
-                        Unvan = p[4].Trim(),
-                        UstID = p[5].Trim()
-                    }).ToList();
-
-                foreach (var kisi in kisiler)
-                {
-                    string ust = string.IsNullOrEmpty(kisi.UstID) ? "root" : kisi.UstID;
-                    if (!agac.ContainsKey(ust))
-                        agac[ust] = new List<Kisi>();
-                    agac[ust].Add(kisi);
-                }
-
-                string html = CizAgac("root");
-                litSema.Text = html;
+                SemaYenile();
             }
+        }
+
+        public void SemaYenile()
+        {
+            string yol = Server.MapPath("~/App_Data/calisanlar2.csv");
+            var satirlar = File.ReadAllLines(yol).Skip(1);
+            var kisiler = satirlar
+                .Select(l => l.Split(';'))
+                .Where(p => p.Length >= 6)
+                .Select(p => new Kisi
+                {
+                    ID = p[0].Trim(),
+                    Departman = p[1].Trim(),
+                    Ad = p[2].Trim(),
+                    Soyad = p[3].Trim(),
+                    Unvan = p[4].Trim(),
+                    UstID = p[5].Trim()
+                }).ToList();
+
+            agac.Clear();
+
+            foreach (var kisi in kisiler)
+            {
+                string ust = string.IsNullOrEmpty(kisi.UstID) ? "root" : kisi.UstID;
+                if (!agac.ContainsKey(ust))
+                    agac[ust] = new List<Kisi>();
+                agac[ust].Add(kisi);
+            }
+
+            litSema.Text = CizAgac("root");
         }
 
         private string CizAgac(string ustID)

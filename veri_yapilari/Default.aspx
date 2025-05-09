@@ -142,6 +142,8 @@
 </asp:Content>
 
 <asp:Content ID="mainContent" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
     <h2 style="text-align:center;">X Şirketi Organizasyon Şeması</h2>
 
     <div class="zoom-buttons">
@@ -149,11 +151,15 @@
         <button onclick="scale -= 0.1; updateZoom()">➖ Uzaklaştır</button>
     </div>
 
-    <div class="tree-container">
-        <div class="tree-zoom">
-            <ul class="tree">
-                <asp:Literal ID="litSema" runat="server" />
-            </ul>
-        </div>
-    </div>
+    <asp:UpdatePanel ID="upSema" runat="server">
+        <ContentTemplate>
+            <div class="tree-container">
+                <div class="tree-zoom">
+                    <ul class="tree">
+                        <asp:Literal ID="litSema" runat="server" />
+                    </ul>
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
