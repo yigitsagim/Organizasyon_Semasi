@@ -1,6 +1,7 @@
 {
   "Version": 1,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "WorkspaceRootPath": "C:\\Users\\yigit\\OneDrive\\Masa\u00FCst\u00FC\\Organizasyon_Semasi-main\\Organizasyon_Semasi-main\\",
   "Documents": [
     {
@@ -41,11 +42,27 @@
       "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\eklecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+  "WorkspaceRootPath": "C:\\Users\\yigit\\OneDrive\\Belgeler\\GitHub\\Organizasyon_Semasi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\yigit\\OneDrive\\Belgeler\\GitHub\\Organizasyon_Semasi\\veri_yapilari\\kodlarim\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\yigit\\OneDrive\\Belgeler\\GitHub\\Organizasyon_Semasi\\veri_yapilari\\kodlarim\\eklecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\eklecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+>>>>>>> Stashed changes
       "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|c:\\users\\yigit\\onedrive\\belgeler\\github\\organizasyon_semasi\\veri_yapilari\\kodlarim\\calisanhashtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\calisanhashtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\yigit\\OneDrive\\Belgeler\\GitHub\\Organizasyon_Semasi\\veri_yapilari\\app_data\\calisanlar2.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\app_data\\calisanlar2.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
@@ -57,6 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
           "SelectedChildIndex": 2,
           "Children": [
@@ -89,6 +107,12 @@
           "Children": [
             {
               "$type": "Document",
+=======
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+>>>>>>> Stashed changes
               "DocumentIndex": 3,
               "Title": "calisanlar2.csv",
               "DocumentMoniker": "C:\\Users\\yigit\\OneDrive\\Belgeler\\GitHub\\Organizasyon_Semasi\\veri_yapilari\\App_Data\\calisanlar2.csv",
@@ -123,11 +147,15 @@
               "ViewState": "AgIAAFEAAAAAAAAAAAAmwAIAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-08T17:27:33.147Z",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
               "DocumentIndex": 0,
               "Title": "DepartmanIslemleri.cs",
@@ -185,6 +213,15 @@
               "ToolTip": "C:\\Users\\yigit\\OneDrive\\Masa\u00FCst\u00FC\\Organizasyon_Semasi-main\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\EkleCalisan.cs",
               "RelativeToolTip": "veri_yapilari\\kodlarim\\EkleCalisan.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAgwI0AAAAaAAAAAAAAAA==",
+=======
+              "DocumentIndex": 1,
+              "Title": "EkleCalisan.cs",
+              "DocumentMoniker": "C:\\Users\\yigit\\OneDrive\\Belgeler\\GitHub\\Organizasyon_Semasi\\veri_yapilari\\kodlarim\\EkleCalisan.cs",
+              "RelativeDocumentMoniker": "veri_yapilari\\kodlarim\\EkleCalisan.cs",
+              "ToolTip": "C:\\Users\\yigit\\OneDrive\\Belgeler\\GitHub\\Organizasyon_Semasi\\veri_yapilari\\kodlarim\\EkleCalisan.cs",
+              "RelativeToolTip": "veri_yapilari\\kodlarim\\EkleCalisan.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowJMAAAAFAAAAAAAAAA==",
+>>>>>>> Stashed changes
 =======
               "DocumentIndex": 1,
               "Title": "EkleCalisan.cs",

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 using System.Linq;
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 using System.Web;
@@ -35,6 +38,7 @@ namespace veri_yapilari.kodlarim
     // Departman işlemlerini yöneten sınıf (ağaç yapısına dayalı)
     public class DepartmanIslemleri
     {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         private string dosyaYolu;
         public List<Departman> Departmanlar { get; private set; }
@@ -106,6 +110,14 @@ namespace veri_yapilari.kodlarim
 
         public DepartmanIslemleri()
         {
+=======
+        private Dictionary<int, DepartmanTreeNode> tumNodlar; // Tüm düğümleri ID ile erişilebilir şekilde tutar
+        private DepartmanTreeNode kok; // Kök düğüm (Genel departmanı gibi en üst seviye)
+        private readonly string dosyaYolu; // CSV dosya yolu
+
+        public DepartmanIslemleri()
+        {
+>>>>>>> Stashed changes
             dosyaYolu = HttpContext.Current.Server.MapPath("~/App_Data/calisanlar2.csv");
             tumNodlar = new Dictionary<int, DepartmanTreeNode>();
             kok = null;
@@ -207,6 +219,9 @@ namespace veri_yapilari.kodlarim
 
         // Ağaç yapısının kökünü dışarıya verir (isteğe bağlı)
         public DepartmanTreeNode GetKok() => kok;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }

@@ -300,4 +300,7 @@ C:\Users\yigit\OneDrive\Belgeler\GitHub\Organizasyon_Semasi\veri_yapilari\obj\De
 C:\Users\yigit\OneDrive\Belgeler\GitHub\Organizasyon_Semasi\veri_yapilari\obj\Debug\veri_yap.60BDE327.Up2Date
 C:\Users\yigit\OneDrive\Belgeler\GitHub\Organizasyon_Semasi\veri_yapilari\obj\Debug\veri_yapilari.dll
 C:\Users\yigit\OneDrive\Belgeler\GitHub\Organizasyon_Semasi\veri_yapilari\obj\Debug\veri_yapilari.pdb
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
