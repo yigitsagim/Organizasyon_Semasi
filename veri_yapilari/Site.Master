@@ -108,7 +108,7 @@
                 <asp:Panel ID="panelAra" runat="server" Visible="false">
                     <h4>Çalışan Ara</h4>
                     <asp:TextBox ID="txtAra" runat="server" CssClass="form-control mb-2" placeholder="Ad Soyad" />
-                    <asp:TextBox ID="txtID" runat="server" CssClass="form-control mb-2" placeholder="ID: " />
+                    
 
                     <asp:Button ID="btnAraCalisan" runat="server" Text="Çalışanı Bul" CssClass="btn btn-secondary" OnClick="btnAraCalisan_Click"/>
                      <!-- Alt satırda kutu gibi bilgi gösterecek label -->

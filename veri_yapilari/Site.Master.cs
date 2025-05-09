@@ -87,7 +87,7 @@ namespace veri_yapilari
         protected void btnAraCalisan_Click(object sender, EventArgs e)
         {
             FormVerileri0.AramaAdSoyad = txtAra.Text.Trim();
-            FormVerileri0.AramaID = txtID.Text.Trim();
+            
 
             if (string.IsNullOrWhiteSpace(FormVerileri0.AramaAdSoyad) || !FormVerileri0.AramaAdSoyad.Contains(" "))
             {
@@ -99,7 +99,7 @@ namespace veri_yapilari
             string ad = parcalar[0];
             string soyad = parcalar[1];
 
-            string ID = FormVerileri0.AramaID;
+            
 
             AraCalisan arama = new AraCalisan();
             string sonuc = arama.Bul(ad, soyad);

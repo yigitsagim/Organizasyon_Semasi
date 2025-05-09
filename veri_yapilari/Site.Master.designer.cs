@@ -231,15 +231,6 @@ namespace veri_yapilari
         protected global::System.Web.UI.WebControls.TextBox txtAra;
 
         /// <summary>
-        /// txtID denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluşturulan alan.
-        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtID;
-
-        /// <summary>
         /// btnAraCalisan denetimi.
         /// </summary>
         /// <remarks>

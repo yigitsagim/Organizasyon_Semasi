@@ -244,7 +244,10 @@
     <Compile Include="InsanKaynaklari.aspx.designer.cs">
       <DependentUpon>InsanKaynaklari.aspx</DependentUpon>
     </Compile>
+    <Compile Include="kodlarim\AgacKurucu.cs" />
     <Compile Include="kodlarim\AraCalisan.cs" />
+    <Compile Include="kodlarim\Calisan.cs" />
+    <Compile Include="kodlarim\CsvOkuyucu.cs" />
     <Compile Include="kodlarim\DepartmanIslemleri.cs" />
     <Compile Include="kodlarim\EkleCalisan.cs" />
     <Compile Include="kodlarim\FormVerileri0.cs" />
