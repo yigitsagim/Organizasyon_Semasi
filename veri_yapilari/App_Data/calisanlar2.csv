@@ -1,16 +1,15 @@
-ID;Departman;Ad;Soyad;Ünvan;UstID
+﻿ID;Departman;Ad;Soyad;Ünvan;ParentID
 99;Genel;Murtaza;Cicioğlu;Genel Yönetici;
-100;Finans;Veli;Kurt;Yönetici;99
+101;Finans;Ayşe;Demir;Çalışan;99
 102;Finans;Onur;Çelik;Çalışan;100
 103;Finans;Melis;Yıldız;Çalışan;100
 104;Finans;Kerem;Şahin;Çalışan;100
 105;Finans;Elif;Aslan;Çalışan;100
 106;Finans;Cemre;Ersoy;Çalışan;100
-110;Finans;Burak;Koca;Çalışan;100
-111;Finans;Zeynep;Güner;Çalışan;100
-112;Finans;Halil;Uçar;Çalışan;100
+107;Finans;Burak;Koca;Çalışan;100
+108;Finans;Halil;Uçar;Çalışan;100
 200;BT;Mert;Can;Yönetici;99
-201;BT;Gözde;Arslan;Çalışan;200
+201;BT;Berra;Akman;Çalışan;200
 202;BT;Yunus;Karaca;Çalışan;200
 203;BT;Derya;Sevim;Çalışan;200
 204;BT;Erkan;Gül;Çalışan;200
@@ -19,7 +18,6 @@ ID;Departman;Ad;Soyad;Ünvan;UstID
 207;BT;Pınar;Öztürk;Çalışan;200
 208;BT;Uğur;Yılmaz;Çalışan;200
 209;BT;Funda;Duman;Çalışan;200
-210;BT;Ayşe;Demir;Çalışan;200
 300;Satış;Ece;Bilgin;Yönetici;99
 301;Satış;Alper;Özcan;Çalışan;300
 302;Satış;Hakan;Güler;Çalışan;300
@@ -40,6 +38,8 @@ ID;Departman;Ad;Soyad;Ünvan;UstID
 407;Pazarlama;Selin;Bozkurt;Çalışan;400
 408;Pazarlama;Mahmut;Güçlü;Çalışan;400
 409;Pazarlama;Fatma;Sancak;Çalışan;400
+410;Pazarlama;Zeynep;Güner;Çalışan;400
+411;Pazarlama;Gözde;Arslan;Çalışan;400
 500;İK;Yasin;Erdem;Yönetici;99
 501;İK;Neşe;Demirtaş;Çalışan;500
 502;İK;Ömer;Gür;Çalışan;500
@@ -48,6 +48,3 @@ ID;Departman;Ad;Soyad;Ünvan;UstID
 505;İK;Kübra;Acar;Çalışan;500
 506;İK;Emirhan;Duru;Çalışan;500
 507;İK;Pelin;Yavuz;Çalışan;500
-508;İK;Bahar;Alkan;Çalışan;500
-509;İK;Yavuz;Korkmaz;Çalışan;500
-600;Çaycı;;;Yönetici;99

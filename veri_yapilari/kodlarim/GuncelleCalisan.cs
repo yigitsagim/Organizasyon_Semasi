@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
-using System.IO;
 using System.Web.UI;
 
 namespace veri_yapilari.kodlarim
@@ -169,188 +169,209 @@ namespace veri_yapilari.kodlarim
             buckets = new Node[size];
         }
     }
-
-    public static class GuncelleCalisan
-    {
-        private static string DataFileVirtual = "~/App_Data/calisanlar2.csv";
-        public static NodeHashTable calisanlar = new NodeHashTable();
-
-        public static void Guncelle()
+   
+        public static class GuncelleCalisan
         {
-            LoadDataFromCsv();
+            private static string DataFileVirtual = "~/App_Data/calisanlar2.csv";
+            public static NodeHashTable calisanlar = new NodeHashTable();
 
-            string ad = FormVerileri0.GuncelAd.Trim();
-            string soyad = FormVerileri0.GuncelSoyad.Trim();
-            string new_dep = FormVerileri0.GuncelYeniDepartman;
-            string new_rol = FormVerileri0.GuncelYeniGorev;
-
-            var aktifSayfa = HttpContext.Current.CurrentHandler as Page;
-
-            var matches = calisanlar
-                .Where(kvp => Normalize(kvp.Value[1]) == Normalize(ad) && Normalize(kvp.Value[2]) == Normalize(soyad))
-                .ToList();
-
-            if (matches.Count != 1) return;
-
-            var existing = matches[0];
-            string old_id = existing.Key;
-            string old_dep = existing.Value[0];
-            string old_ad = existing.Value[1];
-            string old_soyad = existing.Value[2];
-            string old_rol = existing.Value[3];
-            string old_parent = existing.Value[4];
-
-            string prefix = GetPrefix(new_dep);
-            string new_id;
-            string new_parent;
-
-            if (new_rol == "Yönetici")
+        private static string GetPrefix(string departmanAdi)
+        {
+            string path = HttpContext.Current.Server.MapPath("~/App_Data/departmanlar.csv");
+            if (!File.Exists(path))
             {
-                bool mevcutYoneticiVar = calisanlar.Where(x =>
-                x.Value[0] == new_dep &&
-                x.Value[3] == "Yönetici" &&
-                !(x.Value[1] == old_ad && x.Value[2] == old_soyad) &&
-                !(string.IsNullOrWhiteSpace(x.Value[1]) && string.IsNullOrWhiteSpace(x.Value[2])) // boş isimli yöneticileri sayma
-                ).Any();
-
-                if (mevcutYoneticiVar)
-                {
-                    ScriptManager.RegisterStartupScript(
-                  HttpContext.Current.CurrentHandler as Page,
-                  typeof(Page),
-                  "yoneticiUyari",
-                  $"alert('HATA: {new_dep} departmanında zaten bir yönetici bulunmaktadır.');",
-                  true);
-                    return;
-
-                }
-
-                new_id = prefix + "00";
-                new_parent = "99";
-
-                calisanlar.RemoveAll(x =>
-                    x.Value[0] == new_dep && x.Value[3] == "Yönetici" &&
-                    string.IsNullOrWhiteSpace(x.Value[1]) && string.IsNullOrWhiteSpace(x.Value[2]));
-
-                if (new_id != old_id)
-                {
-                    // Yöneticiye geçiyorsa → eski ID silinsin, bağlı kişiler güncellensin
-                    calisanlar.Remove(old_id);
-
-                    foreach (var kvp in calisanlar.GetAll())
-                    {
-                        if (kvp.Value[4] == old_id)
-                            kvp.Value[4] = "0";
-                    }
-
-                    calisanlar.AddOrUpdate(new_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent }); // ✅ Rol burada dinamik
-                }
-                else
-                {
-                    // Sadece departman/rol değişikliği → aynı ID’de kalır, sadece bilgileri günceller
-                    calisanlar.AddOrUpdate(old_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
-                }
-
-            }
-            else
-            {
-                var yonetici = calisanlar
-                    .Where(x => x.Value[0] == new_dep && x.Value[3] == "Yönetici").FirstOrDefault();
-
-                new_parent = yonetici.Key ?? "";
-
-                var tumIdler = calisanlar.GetAll()
-                    .Where(k => k.Key.StartsWith(prefix))
-                    .Select(k => int.Parse(k.Key));
-
-                int candidate = tumIdler.Any() ? tumIdler.Max() + 1 : int.Parse(prefix + "01");
-                while (calisanlar.ContainsKey(candidate.ToString()))
-                    candidate++;
-
-                new_id = candidate.ToString();
-
-                if (new_id != old_id)
-                {
-                    calisanlar.Remove(old_id);
-
-                    foreach (var kvp in calisanlar.GetAll())
-                    {
-                        if (kvp.Value[4] == old_id)
-                            kvp.Value[4] = "0";
-                    }
-
-                    calisanlar.AddOrUpdate(new_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
-                }
-                else
-                {
-                    calisanlar.AddOrUpdate(old_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
-                }
+                System.Diagnostics.Debug.WriteLine("CSV dosyası bulunamadı: " + path);
+                return "-1";
             }
 
-        
+            string aranacak = Normalize(departmanAdi);
+            var lines = File.ReadAllLines(path).Skip(1);
 
-        SaveToCsv();
-
-            ScriptManager.RegisterStartupScript(
-                HttpContext.Current.CurrentHandler as Page,
-                typeof(Page),
-                "guncellemeBasarili",
-                $"alert(\"{ad} {soyad} başarıyla güncellendi.\\nEski: {old_dep} ({old_rol})\\nYeni: {new_dep} ({new_rol})\");",
-                true
-            );
-
-            return;
-
-        }
-
-
-
-        private static void LoadDataFromCsv()
-        {
-            calisanlar.Clear();
-            var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
-            if (!File.Exists(path)) return;
-
-            foreach (var line in File.ReadAllLines(path).Skip(1))
+            foreach (var line in lines)
             {
                 var parts = line.Split(';');
-                if (parts.Length != 6) continue;
+                if (parts.Length >= 2)
+                {
+                    string csvIdStr = parts[0].Trim();
+                    string csvDepAdi = parts[1].Trim();
 
-                string key = parts[0];
-                string[] value = new[] { parts[1], parts[2], parts[3], parts[4], parts[5] };
-                calisanlar.AddOrUpdate(key, value);
-            }
-        }
-
-        private static void SaveToCsv()
-        {
-            var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
-            var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
-
-            foreach (var kvp in calisanlar.GetAll().OrderBy(x => int.Parse(x.Key)))
-            {
-                lines.Add($"{kvp.Key};{kvp.Value[0]};{kvp.Value[1]};{kvp.Value[2]};{kvp.Value[3]};{kvp.Value[4]}");
+                    if (Normalize(csvDepAdi) == aranacak)
+                    {
+                        return csvIdStr;
+                    }
+                }
             }
 
-            File.WriteAllLines(path, lines);
+            return "-1";
         }
 
 
-        private static string Normalize(string input) =>
-            input?.Trim().ToLower(new System.Globalization.CultureInfo("tr-TR", false));
-
-        private static string GetPrefix(string departman)
-        {
-            switch (departman)
+        public static void Guncelle()
             {
-                case "Finans": return "1";
-                case "BT": return "2";
-                case "Satış": return "3";
-                case "Pazarlama": return "4";
-                case "İK":
-                case "İnsan Kaynakları": return "5";
-                default: return "0";
+                LoadDataFromCsv();
+
+                string ad = FormVerileri0.GuncelAd.Trim();
+                string soyad = FormVerileri0.GuncelSoyad.Trim();
+                string new_dep = FormVerileri0.GuncelYeniDepartman;
+                string new_rol = FormVerileri0.GuncelYeniGorev;
+
+                var matches = calisanlar
+                    .Where(kvp => Normalize(kvp.Value[1]) == Normalize(ad) && Normalize(kvp.Value[2]) == Normalize(soyad))
+                    .ToList();
+
+                if (matches.Count != 1) return;
+
+                var existing = matches[0];
+                string old_id = existing.Key;
+                string old_dep = existing.Value[0];
+                string old_ad = existing.Value[1];
+                string old_soyad = existing.Value[2];
+                string old_rol = existing.Value[3];
+                string old_parent = existing.Value[4];
+
+                string prefix = GetPrefix(new_dep);
+                if (prefix == "-1")
+                {
+                    ScriptManager.RegisterStartupScript(
+                        HttpContext.Current.CurrentHandler as Page,
+                        typeof(Page),
+                        "departmanHata",
+                        $"alert('Geçersiz departman adı!');",
+                        true
+                    );
+                    return;
+                }
+
+                int baseId = int.Parse(prefix);
+                string new_id;
+                string new_parent;
+
+                if (new_rol == "Yönetici")
+                {
+                    bool mevcutYoneticiVar = calisanlar.Where(x =>
+                        x.Value[0] == new_dep &&
+                        x.Value[3] == "Yönetici" &&
+                        !(x.Value[1] == old_ad && x.Value[2] == old_soyad) &&
+                        !(string.IsNullOrWhiteSpace(x.Value[1]) && string.IsNullOrWhiteSpace(x.Value[2]))
+                    ).Any();
+
+                    if (mevcutYoneticiVar)
+                    {
+                        ScriptManager.RegisterStartupScript(
+                            HttpContext.Current.CurrentHandler as Page,
+                            typeof(Page),
+                            "yoneticiUyari",
+                            $"alert('HATA: {new_dep} departmanında zaten bir yönetici bulunmaktadır.');",
+                            true
+                        );
+                        return;
+                    }
+
+                    new_id = (baseId * 100).ToString(); // Örn: 2 → 200
+                    new_parent = "99";
+
+                    calisanlar.RemoveAll(x =>
+                        x.Value[0] == new_dep && x.Value[3] == "Yönetici" &&
+                        string.IsNullOrWhiteSpace(x.Value[1]) && string.IsNullOrWhiteSpace(x.Value[2]));
+
+                    if (new_id != old_id)
+                    {
+                        calisanlar.Remove(old_id);
+
+                        foreach (var kvp in calisanlar.GetAll())
+                        {
+                            if (kvp.Value[4] == old_id)
+                                kvp.Value[4] = "0";
+                        }
+
+                        calisanlar.AddOrUpdate(new_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
+                    }
+                    else
+                    {
+                        calisanlar.AddOrUpdate(old_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
+                    }
+                }
+                else
+                {
+                    var yonetici = calisanlar
+                        .Where(x => x.Value[0] == new_dep && x.Value[3] == "Yönetici")
+                        .FirstOrDefault();
+
+                    new_parent = yonetici.Key ?? "";
+
+                    var tumIdler = calisanlar.GetAll()
+                        .Where(k => k.Key.StartsWith((baseId * 100).ToString()))
+                        .Select(k => int.Parse(k.Key));
+
+                    int candidate = tumIdler.Any() ? tumIdler.Max() + 1 : baseId * 100 + 1;
+                    while (calisanlar.ContainsKey(candidate.ToString()))
+                        candidate++;
+
+                    new_id = candidate.ToString();
+
+                    if (new_id != old_id)
+                    {
+                        calisanlar.Remove(old_id);
+
+                        foreach (var kvp in calisanlar.GetAll())
+                        {
+                            if (kvp.Value[4] == old_id)
+                                kvp.Value[4] = "0";
+                        }
+
+                        calisanlar.AddOrUpdate(new_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
+                    }
+                    else
+                    {
+                        calisanlar.AddOrUpdate(old_id, new[] { new_dep, old_ad, old_soyad, new_rol, new_parent });
+                    }
+                }
+
+                SaveToCsv();
+
+                ScriptManager.RegisterStartupScript(
+                    HttpContext.Current.CurrentHandler as Page,
+                    typeof(Page),
+                    "guncellemeBasarili",
+                    $"alert(\"{ad} {soyad} başarıyla güncellendi.\\nEski: {old_dep} ({old_rol})\\nYeni: {new_dep} ({new_rol})\");",
+                    true
+                );
             }
+
+            private static void LoadDataFromCsv()
+            {
+                calisanlar.Clear();
+                var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+                if (!File.Exists(path)) return;
+
+                foreach (var line in File.ReadAllLines(path).Skip(1))
+                {
+                    var parts = line.Split(';');
+                    if (parts.Length != 6) continue;
+
+                    string key = parts[0];
+                    string[] value = new[] { parts[1], parts[2], parts[3], parts[4], parts[5] };
+                    calisanlar.AddOrUpdate(key, value);
+                }
+            }
+
+            private static void SaveToCsv()
+            {
+                var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+                var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
+
+                foreach (var kvp in calisanlar.GetAll())
+                {
+                    lines.Add($"{kvp.Key};{kvp.Value[0]};{kvp.Value[1]};{kvp.Value[2]};{kvp.Value[3]};{kvp.Value[4]}");
+                }
+
+                File.WriteAllLines(path, lines);
+            }
+
+            private static string Normalize(string input) =>
+                input?.Trim().ToLower(new System.Globalization.CultureInfo("tr-TR", false));
         }
     }
-}
+
+
+

@@ -1,13 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Organizasyon_Semasi",
-    "\\Organizasyon_Semasi\\veri_yapilari",
-    "\\Organizasyon_Semasi\\veri_yapilari\\App_Data",
-    "\\Organizasyon_Semasi\\veri_yapilari\\kodlarim",
     "\\veri_yapilari",
-    "\\veri_yapilari\\Content"
+    "\\veri_yapilari\\App_Data",
+    "\\veri_yapilari\\kodlarim",
+    "\\veri_yapilari\\obj",
+    "\\veri_yapilari\\obj\\Debug",
+    "\\veri_yapilari\\obj\\Release",
+    "\\veri_yapilari\\Properties",
+    "\\veri_yapilari\\Scripts"
   ],
-  "SelectedNode": "\\veri_yapilari\\Content\\bootstrap-grid.rtl.min.css",
+  "SelectedNode": "\\veri_yapilari\\App_Data\\calisanlar2.csv",
   "PreviewInSolutionExplorer": false
 }

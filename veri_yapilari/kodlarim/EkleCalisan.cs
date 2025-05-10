@@ -143,143 +143,199 @@ namespace veri_yapilari.kodlarim
         }
     }
 
-    public static class EkleCalisan
+    public static class DepartmanYardimci
     {
-        private static string DataFileVirtual = "~/App_Data/calisanlar2.csv";
-        private static CalisanHashTable calisanlar = new CalisanHashTable();
+        private static string DataFileVirtual = "~/App_Data/departments.csv";
 
-        public static void Ekle()
+        public static string GetPrefix(string departmanAdi)
         {
-            LoadFromCsv();
+            string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+            if (!File.Exists(path)) return "0";
 
-            string ad = FormVerileri0.EkleAd.Trim();
-            string soyad = FormVerileri0.EkleSoyad.Trim();
-            string departman = FormVerileri0.EkleDepartman.Trim();
-            string unvan = FormVerileri0.EkleGorev.Trim();
-
-            string prefix = GetPrefix(departman);
-            string yeni_id = "";
-            string parent_id = "";
-
-            if (unvan == "Yönetici")
+            foreach (var line in File.ReadAllLines(path).Skip(1))
             {
-                if (calisanlar.YoneticiVarMi(departman))
+                var parts = line.Split(';');
+                if (parts.Length >= 2 &&
+                    parts[1].Trim().ToLower() == departmanAdi.Trim().ToLower())
                 {
-                    if (HttpContext.Current.CurrentHandler is Page page1)
+                    return parts[0];
+                }
+            }
+
+            return "0";
+        }
+
+
+        public static int GetDepartmanSirasi(string departmanAdi)
+        {
+            string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+            if (!File.Exists(path)) return 99;
+
+            foreach (var line in File.ReadAllLines(path).Skip(1))
+            {
+                var parts = line.Split(';');
+                if (parts.Length >= 2 && parts[1].Trim() == departmanAdi && int.TryParse(parts[0], out int sira))
+                    return sira;
+            }
+
+            return 99;
+        }
+
+        public static List<string> GetirDepartmanAdlari()
+        {
+            string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+            var list = new List<string>();
+
+            if (!File.Exists(path)) return list;
+
+            foreach (var line in File.ReadAllLines(path).Skip(1))
+            {
+                var parts = line.Split(';');
+                if (parts.Length >= 2 && !string.IsNullOrWhiteSpace(parts[1]))
+                    list.Add(parts[1].Trim());
+            }
+
+            return list;
+        }
+    }
+
+ 
+        public static class EkleCalisan
+        {
+            private static string DataFileVirtual = "~/App_Data/calisanlar2.csv";
+            public static NodeHashTable calisanlar = new NodeHashTable();
+
+            private static string GetPrefix(string departmanAdi)
+            {
+                string path = HttpContext.Current.Server.MapPath("~/App_Data/departmanlar.csv");
+                if (!File.Exists(path)) return "-1";
+
+                string aranacak = Normalize(departmanAdi);
+                var lines = File.ReadAllLines(path).Skip(1);
+
+                foreach (var line in lines)
+                {
+                    var parts = line.Split(';');
+                    if (parts.Length >= 2)
                     {
-                        string mesaj = $"Bu departmanda zaten bir yönetici var. Yeni yönetici eklenemez.";
-                        page1.ClientScript.RegisterStartupScript(
-                            page1.GetType(),
-                            "yoneticiVarMsg",
-                            $"alert('{mesaj}');",
-                            true
-                        );
+                        string csvIdStr = parts[0].Trim();
+                        string csvDepAdi = parts[1].Trim();
+
+                        if (Normalize(csvDepAdi) == aranacak)
+                            return csvIdStr;
                     }
+                }
+
+                return "-1";
+            }
+
+            public static void Ekle()
+            {
+                LoadFromCsv();
+
+                string ad = FormVerileri0.EkleAd.Trim();
+                string soyad = FormVerileri0.EkleSoyad.Trim();
+                string departman = FormVerileri0.EkleDepartman.Trim();
+                string unvan = FormVerileri0.EkleGorev.Trim();
+
+                string prefix = GetPrefix(departman);
+                if (!int.TryParse(prefix, out int pre) || pre == 0)
+                {
+                    ShowAlert("Departman için geçerli bir ID prefix bulunamadı. Lütfen departmanlar.csv dosyasını kontrol edin.");
                     return;
                 }
 
-                calisanlar.BosYoneticileriSil(departman);
-                yeni_id = prefix + "00";
-                parent_id = "99";
+                int baseId = pre * 100;
+                string yeni_id;
+                string parent_id;
 
-                var node = new CalisanNode(yeni_id, departman, ad, soyad, "Yönetici", parent_id);
-                calisanlar.Ekle(node);
-            }
-            else
-            {
-                var yonetici = calisanlar.GetYonetici(departman);
-                parent_id = yonetici != null ? yonetici.ID : "";
+                if (unvan == "Yönetici")
+                {
+                    bool mevcutYoneticiVar = calisanlar.Where(x =>
+                        x.Value[0] == departman &&
+                        x.Value[3] == "Yönetici" &&
+                        !string.IsNullOrWhiteSpace(x.Value[1]) &&
+                        !string.IsNullOrWhiteSpace(x.Value[2])).Any();
 
-                var mevcutIdler = calisanlar.TumCalisanlariGetir()
-                    .Where(x => x.ID.StartsWith(prefix))
-                    .Select(x => int.TryParse(x.ID, out int num) ? num : 0);
+                    if (mevcutYoneticiVar)
+                    {
+                        ShowAlert("Bu departmanda zaten bir yönetici var. Yeni yönetici eklenemez.");
+                        return;
+                    }
 
-                int candidate = mevcutIdler.Any() ? mevcutIdler.Max() + 1 : int.Parse(prefix + "01");
-                while (calisanlar.Get(candidate.ToString()) != null)
-                    candidate++;
+                    calisanlar.RemoveAll(x =>
+                        x.Value[0] == departman && x.Value[3] == "Yönetici" &&
+                        string.IsNullOrWhiteSpace(x.Value[1]) && string.IsNullOrWhiteSpace(x.Value[2]));
 
-                yeni_id = candidate.ToString();
+                    yeni_id = baseId.ToString();
+                    parent_id = "99";
+                    calisanlar.AddOrUpdate(yeni_id, new[] { departman, ad, soyad, unvan, parent_id });
+                }
+                else
+                {
+                    var yonetici = calisanlar.Where(x => x.Value[0] == departman && x.Value[3] == "Yönetici").FirstOrDefault();
+                    parent_id = yonetici.Key ?? "";
 
-                var node = new CalisanNode(yeni_id, departman, ad, soyad, unvan, parent_id);
-                calisanlar.Ekle(node);
-            }
+                    var mevcutIdler = calisanlar.GetAll()
+                        .Where(k => k.Key.StartsWith((baseId).ToString()))
+                        .Select(k => int.Parse(k.Key));
 
-            if (HttpContext.Current.CurrentHandler is Page page)
-            {
-                string mesaj = $"Eklendi: {ad} {soyad} → ID: {yeni_id} / {departman} / {unvan}";
-                page.ClientScript.RegisterStartupScript(
-                    page.GetType(),
-                    "addMsg",
-                    $"alert('{mesaj}');",
-                    true
-                );
+                    int candidate = mevcutIdler.Any() ? mevcutIdler.Max() + 1 : baseId + 1;
+                    while (calisanlar.ContainsKey(candidate.ToString()))
+                        candidate++;
+
+                    yeni_id = candidate.ToString();
+                    calisanlar.AddOrUpdate(yeni_id, new[] { departman, ad, soyad, unvan, parent_id });
+                }
 
                 SaveToCsv();
-            }
-        }
-
-        private static void LoadFromCsv()
-        {
-            calisanlar.Clear();
-            string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
-            if (!File.Exists(path)) return;
-
-            foreach (string line in File.ReadAllLines(path).Skip(1))
-            {
-                var parts = line.Split(';');
-                if (parts.Length != 6) continue;
-
-                var node = new CalisanNode(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
-                calisanlar.Ekle(node);
-            }
-        }
-
-        private static void SaveToCsv()
-        {
-            string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
-            var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
-
-            var siraliCalisanlar = calisanlar.TumCalisanlariGetir()
-                .OrderBy(x => GetDepartmanSirasi(x.Departman))
-                .ThenBy(x => x.Unvan != "Yönetici")
-                .ThenBy(x => int.TryParse(x.ID, out int id) ? id : int.MaxValue);
-
-            foreach (var node in siraliCalisanlar)
-            {
-                lines.Add($"{node.ID};{node.Departman};{node.Ad};{node.Soyad};{node.Unvan};{node.ParentID}");
+                ShowAlert($"Eklendi: {ad} {soyad} → ID: {yeni_id} / {departman} / {unvan}");
             }
 
-            File.WriteAllLines(path, lines);
-        }
-
-        private static string GetPrefix(string departman)
-        {
-            switch (departman)
+            private static void LoadFromCsv()
             {
-                case "Finans": return "1";
-                case "BT": return "2";
-                case "Satış": return "3";
-                case "Pazarlama": return "4";
-                case "İK":
-                case "İnsan Kaynakları": return "5";
-                case "Genel": return "9";
-                default: return "0";
+                calisanlar.Clear();
+                string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+                if (!File.Exists(path)) return;
+
+                foreach (var line in File.ReadAllLines(path).Skip(1))
+                {
+                    var parts = line.Split(';');
+                    if (parts.Length != 6) continue;
+                    string key = parts[0];
+                    string[] value = new[] { parts[1], parts[2], parts[3], parts[4], parts[5] };
+                    calisanlar.AddOrUpdate(key, value);
+                }
             }
-        }
 
-        private static int GetDepartmanSirasi(string departman)
-        {
-            switch (departman)
+            private static void SaveToCsv()
             {
-                case "Genel": return 0;
-                case "Finans": return 1;
-                case "BT": return 2;
-                case "Satış": return 3;
-                case "Pazarlama": return 4;
-                case "İK":
-                case "İnsan Kaynakları": return 5;
-                default: return 99;
+                string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+                var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
+
+                foreach (var kvp in calisanlar.GetAll())
+                {
+                    lines.Add($"{kvp.Key};{kvp.Value[0]};{kvp.Value[1]};{kvp.Value[2]};{kvp.Value[3]};{kvp.Value[4]}");
+                }
+
+                File.WriteAllLines(path, lines);
+            }
+
+            private static string Normalize(string input) =>
+                input?.Trim().ToLower(new System.Globalization.CultureInfo("tr-TR", false));
+
+            private static void ShowAlert(string message)
+            {
+                if (HttpContext.Current.CurrentHandler is Page page)
+                {
+                    page.ClientScript.RegisterStartupScript(
+                        page.GetType(),
+                        "alertMsg",
+                        $"alert('{message}');",
+                        true
+                    );
+                }
             }
         }
     }
-}
+

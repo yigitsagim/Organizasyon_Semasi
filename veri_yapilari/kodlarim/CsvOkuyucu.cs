@@ -36,7 +36,7 @@ namespace veri_yapilari.kodlarim
 
             return calisanlar;
         }
-
+    
 
 
     }

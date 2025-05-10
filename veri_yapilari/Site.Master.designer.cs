@@ -87,13 +87,13 @@ namespace veri_yapilari
         protected global::System.Web.UI.WebControls.TextBox txtEkleAd;
 
         /// <summary>
-        /// txtekleSoyad denetimi.
+        /// txtEkleSoyad denetimi.
         /// </summary>
         /// <remarks>
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtekleSoyad;
+        protected global::System.Web.UI.WebControls.TextBox txtEkleSoyad;
 
         /// <summary>
         /// ddlDepartman denetimi.
@@ -256,15 +256,6 @@ namespace veri_yapilari
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAra;
-
-        /// <summary>
-        /// txtID denetimi.
-        /// </summary>
-        /// <remarks>
-        /// Otomatik olarak oluşturulan alan.
-        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtID;
 
         /// <summary>
         /// btnAraCalisan denetimi.

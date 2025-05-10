@@ -106,9 +106,14 @@ namespace veri_yapilari.kodlarim
         {
             if (HttpContext.Current.CurrentHandler is Page page)
             {
-                string script = $"alert('{msg.Replace("'", "\\'")}');";
-                page.ClientScript.RegisterStartupScript(page.GetType(), Guid.NewGuid().ToString(), script, true);
+                string script = $@"
+            alert('{msg.Replace("'", "\\'")}');
+            setTimeout(function() {{
+                window.location.href = window.location.href;
+            }}, 1000);"; // 1 saniye sonra sayfayı yenile
+                ScriptManager.RegisterStartupScript(page, page.GetType(), Guid.NewGuid().ToString(), script, true);
             }
         }
+
     }
 }
