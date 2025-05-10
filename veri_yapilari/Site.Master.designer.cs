@@ -150,6 +150,33 @@ namespace veri_yapilari
         protected global::System.Web.UI.WebControls.TextBox txtSilSoyad;
 
         /// <summary>
+        /// txtSilDepartman denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSilDepartman;
+
+        /// <summary>
+        /// lblSilInfo denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSilInfo;
+
+        /// <summary>
+        /// ddlSilDepartmanSec denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSilDepartmanSec;
+
+        /// <summary>
         /// btnSilCalisan denetimi.
         /// </summary>
         /// <remarks>
@@ -229,6 +256,15 @@ namespace veri_yapilari
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAra;
+
+        /// <summary>
+        /// txtID denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtID;
 
         /// <summary>
         /// btnAraCalisan denetimi.

@@ -327,13 +327,14 @@ namespace veri_yapilari.kodlarim
             var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
             var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
 
-            foreach (var kvp in calisanlar.GetAll())
+            foreach (var kvp in calisanlar.GetAll().OrderBy(x => int.Parse(x.Key)))
             {
                 lines.Add($"{kvp.Key};{kvp.Value[0]};{kvp.Value[1]};{kvp.Value[2]};{kvp.Value[3]};{kvp.Value[4]}");
             }
 
             File.WriteAllLines(path, lines);
         }
+
 
         private static string Normalize(string input) =>
             input?.Trim().ToLower(new System.Globalization.CultureInfo("tr-TR", false));

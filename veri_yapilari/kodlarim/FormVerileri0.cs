@@ -20,6 +20,7 @@ namespace veri_yapilari.kodlarim
 
         public static string SilAd { get; set; }
         public static string SilSoyad { get; set; }
+        public static string SilDepartman { get; set; }
 
         public static string AramaAdSoyad { get; set; }
         public static string AramaID { get; set; }

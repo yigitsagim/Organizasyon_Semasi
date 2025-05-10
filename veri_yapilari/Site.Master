@@ -84,8 +84,16 @@
                     <asp:TextBox ID="txtSilAd" runat="server" CssClass="form-control mb-2" placeholder="Ad" />
                     <asp:TextBox ID="txtSilSoyad" runat="server" CssClass="form-control mb-2" placeholder="Soyad" />
 
+                    <!-- İsteğe bağlı departman -->
+                    <asp:TextBox ID="txtSilDepartman" runat="server" CssClass="form-control mb-2" placeholder="Departman (isteğe bağlı)" />
+
+                    <!-- Eğer birden fazla departman eşleşmesi varsa gösterilecek alanlar -->
+                    <asp:Label ID="lblSilInfo" runat="server" CssClass="form-label mt-2" Text="" Visible="false"></asp:Label>
+                    <asp:DropDownList ID="ddlSilDepartmanSec" runat="server" CssClass="form-control mb-2" Visible="false"></asp:DropDownList>
+
                     <asp:Button ID="btnSilCalisan" runat="server" Text="Sil" CssClass="btn btn-secondary" OnClick="btnSilCalisan_Click"/>
                 </asp:Panel>
+
 
                 <asp:Panel ID="panelGuncelle" runat="server" Visible="false">
                     <h4>Çalışan Güncelle</h4>
@@ -108,7 +116,7 @@
                 <asp:Panel ID="panelAra" runat="server" Visible="false">
                     <h4>Çalışan Ara</h4>
                     <asp:TextBox ID="txtAra" runat="server" CssClass="form-control mb-2" placeholder="Ad Soyad" />
-                    
+                    <asp:TextBox ID="txtID" runat="server" CssClass="form-control mb-2" placeholder="ID: " />
 
                     <asp:Button ID="btnAraCalisan" runat="server" Text="Çalışanı Bul" CssClass="btn btn-secondary" OnClick="btnAraCalisan_Click"/>
                      <!-- Alt satırda kutu gibi bilgi gösterecek label -->

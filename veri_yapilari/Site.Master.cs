@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using veri_yapilari.kodlarim;
 
@@ -78,16 +79,34 @@ namespace veri_yapilari
 
         protected void btnSilCalisan_Click(object sender, EventArgs e)
         {
+            // form değerlerini al
             FormVerileri0.SilAd = txtSilAd.Text.Trim();
             FormVerileri0.SilSoyad = txtSilSoyad.Text.Trim();
-            SilCalisan.Sil();
-            SemaYenileIfExists();
+            FormVerileri0.SilDepartman = txtSilDepartman.Text.Trim();
+
+            // silme işlemini yap
+            List<string> multipleDeps;
+            SilCalisan.Sil(out multipleDeps);
+
+            // eğer birden fazla departman uyarısı geldiyse dropdown göster
+            if (multipleDeps != null && multipleDeps.Count > 1)
+            {
+                lblSilInfo.Text = "Lütfen departman seçin:";
+                ddlSilDepartmanSec.DataSource = multipleDeps;
+                ddlSilDepartmanSec.DataBind();
+                ddlSilDepartmanSec.Visible = true;
+            }
+            else
+            {
+                // silme tamamlandıktan sonra sayfayı yeniden yükle
+                Response.Redirect(Request.RawUrl);
+            }
         }
 
         protected void btnAraCalisan_Click(object sender, EventArgs e)
         {
             FormVerileri0.AramaAdSoyad = txtAra.Text.Trim();
-            
+            FormVerileri0.AramaID = txtID.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(FormVerileri0.AramaAdSoyad) || !FormVerileri0.AramaAdSoyad.Contains(" "))
             {
@@ -99,7 +118,7 @@ namespace veri_yapilari
             string ad = parcalar[0];
             string soyad = parcalar[1];
 
-            
+            string ID = FormVerileri0.AramaID;
 
             AraCalisan arama = new AraCalisan();
             string sonuc = arama.Bul(ad, soyad);

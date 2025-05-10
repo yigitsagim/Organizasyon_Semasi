@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 
 namespace veri_yapilari.kodlarim
@@ -54,7 +55,7 @@ namespace veri_yapilari.kodlarim
             int yeniId = ((maxId / 100) + 1) * 100;
 
             // Yeni düğüm oluşturulur, yönetici bilgileri boş bırakılır
-            DepartmanTreeNode yeni = new DepartmanTreeNode(
+            var yeni = new DepartmanTreeNode(
                 yeniId,
                 departmanAdi.Trim(),
                 "",
@@ -97,15 +98,22 @@ namespace veri_yapilari.kodlarim
         private void DosyadanYukle()
         {
             if (!File.Exists(dosyaYolu)) return;
-            string[] satirlar = File.ReadAllLines(dosyaYolu);
+            var satirlar = File.ReadAllLines(dosyaYolu).ToList();
+
+            // Başlık satırını atla
+            if (satirlar.Count > 0 && satirlar[0].StartsWith("ID;"))
+                satirlar.RemoveAt(0);
 
             // 1. Aşama: Her satırdan düğümleri oluştur, ID'ye göre sözlüğe ekle
             foreach (var satir in satirlar)
             {
                 var p = satir.Split(';');
-                if (p.Length < 6 || !int.TryParse(p[0], out int id)) continue;
+                if (p.Length < 6 || !int.TryParse(p[0], out int id))
+                    continue;
 
-                int? parentId = string.IsNullOrWhiteSpace(p[5]) ? (int?)null : int.Parse(p[5]);
+                int? parentId = string.IsNullOrWhiteSpace(p[5])
+                                ? (int?)null
+                                : int.Parse(p[5]);
 
                 var node = new DepartmanTreeNode(id, p[1], p[2], p[3], p[4], parentId);
                 tumNodlar[id] = node;
@@ -118,21 +126,29 @@ namespace veri_yapilari.kodlarim
                 {
                     kok = node; // Parent ID yoksa bu kök düğümdür
                 }
-                else if (tumNodlar.ContainsKey((int)node.ParentId))
+                else if (tumNodlar.ContainsKey(node.ParentId.Value))
                 {
-                    tumNodlar[(int)node.ParentId].Cocuklar.Add(node); // Ağaca yerleştir
+                    tumNodlar[node.ParentId.Value].Cocuklar.Add(node);
                 }
             }
         }
 
-        // Tüm düğümleri CSV formatında kaydeder
+        // Tüm düğümleri CSV formatında, başlık satırıyla birlikte kaydeder
         private void DosyayaKaydet()
         {
-            List<string> satirlar = new List<string>();
+            var satirlar = new List<string>();
+
+            // 1) Başlık satırını ekle
+            satirlar.Add("ID;Departman;Ad;Soyad;Ünvan;UstID");
+
+            // 2) Mevcut düğümleri ekle
             foreach (var node in tumNodlar.Values)
             {
-                satirlar.Add($"{node.Id};{node.DepartmanAdi};{node.Ad};{node.Soyad};{node.Unvan};{(node.ParentId.HasValue ? node.ParentId.ToString() : "")}");
+                string ustId = node.ParentId.HasValue ? node.ParentId.ToString() : "";
+                satirlar.Add($"{node.Id};{node.DepartmanAdi};{node.Ad};{node.Soyad};{node.Unvan};{ustId}");
             }
+
+            // 3) Dosyayı yaz
             File.WriteAllLines(dosyaYolu, satirlar);
         }
 

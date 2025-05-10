@@ -41,5 +41,3 @@ namespace veri_yapilari.kodlarim
     }
 }
 
-
-
