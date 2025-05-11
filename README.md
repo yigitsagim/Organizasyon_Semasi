@@ -166,9 +166,17 @@ Proje tamamen C# diliyle, ASP.NET Web Forms teknolojisi kullanılarak geliştiri
 ### BFS ile Arama vs. Doğrudan Liste Taraması
 - Tree üzerinden katman katman tarama yapılır.
 - Hiyerarşik bütünlük korunur, sadece ad/soyad değil, konum bilgisi de analiz edilebilir.
+ 
+---
+## Sonuç:
+
+Bu proje, kurumsal organizasyon yapısını hiyerarşik olarak modelleyip yönetilebilir hale getirmiştir. Kullanılan veri yapıları (Tree, Hash Table, Linked List, Queue) işlemlerin hızlı, düzenli ve kalıcı şekilde gerçekleşmesini sağlamıştır.
+
+Veritabanı yerine dosya tabanlı yapı tercih edilerek sistem taşınabilir ve dağıtılabilir hale getirilmiştir. Tüm işlevler algoritma temelli olarak planlanmış, sistem performansı ve veri bütünlüğü ön planda tutulmuştur.
+
+Sonuç olarak proje, veri yapılarının etkin kullanımına dayalı, sürdürülebilir ve işlevsel bir çözüm sunmaktadır.
 
 ---
-
 ## Projenin Kurulumu ve Çalıştırılması
 
 ### Gereksinimler
