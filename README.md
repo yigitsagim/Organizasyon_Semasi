@@ -2,7 +2,8 @@
 
 ## Proje Kapsamı ve Amacı
 
-Bu proje, bir kurumun organizasyonel yapısını yazılım aracılığıyla modellemeyi ve yönetmeyi amaçlamaktadır. Proje kapsamında, departmanlara bağlı çalışanlar hiyerarşik bir yapı ile temsil edilir. Kullanıcılar, çalışan ve departman ekleme, silme, güncelleme ve arama gibi işlemleri gerçekleştirebilir. Ayrıca sistem, her çalışanın ait olduğu departmanla olan ilişkisini ve yönetici-alt çalışan bağını ağaç yapısı ile görselleştirir.
+Proje, bir kurumun organizasyonel yapısını yazılım aracılığıyla modellemeyi ve yönetmeyi amaçlamaktadır. Proje içerisinde departmanlara bağlı çalışanlar hiyerarşik bir yapı ile temsil edilir. Kullanıcılar, çalışan ve departman ekleme, silme, güncelleme ve arama gibi işlemleri gerçekleştirebilir. Ayrıca sistem, her çalışanın ait olduğu departmanla olan ilişkisini ve yönetici-alt çalışan bağını ağaç yapısı ile görselleştirir.
+
 
 Proje tamamen C# diliyle, ASP.NET Web Forms teknolojisi kullanılarak geliştirilmiştir. Veritabanı yerine CSV tabanlı dosya sistemi tercih edilmiştir. Veri işlemleri, Hash Table, Linked List, Tree ve List veri yapıları kullanılarak gerçekleştirilmiştir. Tüm kaynak kodlar ve geliştirici katkıları, açık bir GitHub deposunda ortak bir “main” branch ve grup üyelerinin bireysel branch'ları üzerinden yürütülmüştür.
 
@@ -170,7 +171,7 @@ Proje tamamen C# diliyle, ASP.NET Web Forms teknolojisi kullanılarak geliştiri
 ---
 ## Sonuç:
 
-Bu proje, kurumsal organizasyon yapısını hiyerarşik olarak modelleyip yönetilebilir hale getirmiştir. Kullanılan veri yapıları (Tree, Hash Table, Linked List, Queue) işlemlerin hızlı, düzenli ve kalıcı şekilde gerçekleşmesini sağlamıştır.
+Kurumsal organizasyon yapısı bu projede hiyerarşik olarak modellenip yönetilebilir hale getirilmiştir. Kullanılan veri yapıları (Tree, Hash Table, Linked List, Queue) işlemlerin hızlı, düzenli ve kalıcı şekilde gerçekleşmesini sağlamıştır.
 
 Veritabanı yerine dosya tabanlı yapı tercih edilerek sistem taşınabilir ve dağıtılabilir hale getirilmiştir. Tüm işlevler algoritma temelli olarak planlanmış, sistem performansı ve veri bütünlüğü ön planda tutulmuştur.
 
