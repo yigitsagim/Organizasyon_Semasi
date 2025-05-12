@@ -1,6 +1,10 @@
 ﻿using veri_yapilari.kodlarim;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
 
 namespace veri_yapilari.kodlarim
 {
@@ -23,21 +27,12 @@ namespace veri_yapilari.kodlarim
             {
                 if (calisan.ParentID.HasValue)
                 {
-                    if (idSozluk.ContainsKey(calisan.ParentID.Value))
-                    {
-                        var parent = idSozluk[calisan.ParentID.Value];
-                        parent.Cocuklar.Add(calisan);
-                    }
-                    else
-                    {
-                        // Hatalı ParentID varsa log veya uyarı üretilebilir
-                        // Örnek: loglama yapılabilir veya sistemde işlenmeden bırakılabilir
-                        // Console.WriteLine($"Uyarı: {calisan.TamAd()} için geçersiz ParentID: {calisan.ParentID.Value}");
-                    }
+                    var parent = idSozluk[calisan.ParentID.Value];
+                    parent.Cocuklar.Add(calisan);
                 }
                 else
                 {
-                    kok = calisan; // parentID yoksa kök düğümdür
+                    kok = calisan; // parentID yoksa köktür
                 }
             }
 
@@ -45,7 +40,6 @@ namespace veri_yapilari.kodlarim
         }
     }
 }
-
 
 
 

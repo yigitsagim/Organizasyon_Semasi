@@ -245,19 +245,20 @@ namespace veri_yapilari.kodlarim
                     return;
                 }
 
-                int baseId = pre * 100;
+                int baseId = pre;
                 string yeni_id;
                 string parent_id;
 
                 if (unvan == "Yönetici")
                 {
-                    bool mevcutYoneticiVar = calisanlar.Where(x =>
-                        x.Value[0] == departman &&
-                        x.Value[3] == "Yönetici" &&
-                        !string.IsNullOrWhiteSpace(x.Value[1]) &&
-                        !string.IsNullOrWhiteSpace(x.Value[2])).Any();
+                bool mevcutYoneticiVar = calisanlar.GetAll().Any(x =>
+    x.Value[0].Trim() == departman &&
+    x.Value[3].Trim() == "Yönetici" &&
+    !string.IsNullOrWhiteSpace(x.Value[1]?.Trim()) &&
+    !string.IsNullOrWhiteSpace(x.Value[2]?.Trim()));
 
-                    if (mevcutYoneticiVar)
+
+                if (mevcutYoneticiVar)
                     {
                         ShowAlert("Bu departmanda zaten bir yönetici var. Yeni yönetici eklenemez.");
                         return;
@@ -308,20 +309,53 @@ namespace veri_yapilari.kodlarim
                 }
             }
 
-            private static void SaveToCsv()
+        private static void SaveToCsv()
+        {
+            string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+            var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
+
+            // Departman sırasını al
+            var departmanSirasi = new Dictionary<string, int>();
+            string depPath = HttpContext.Current.Server.MapPath("~/App_Data/departmanlar.csv");
+
+            if (File.Exists(depPath))
             {
-                string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
-                var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
-
-                foreach (var kvp in calisanlar.GetAll())
+                foreach (var line in File.ReadAllLines(depPath).Skip(1))
                 {
-                    lines.Add($"{kvp.Key};{kvp.Value[0]};{kvp.Value[1]};{kvp.Value[2]};{kvp.Value[3]};{kvp.Value[4]}");
+                    var parts = line.Split(';');
+                    if (parts.Length >= 2 && int.TryParse(parts[0], out int sira))
+                        departmanSirasi[parts[1].Trim()] = sira;
                 }
-
-                File.WriteAllLines(path, lines);
             }
 
-            private static string Normalize(string input) =>
+            // Tüm çalışanları al
+            var calisanlarList = calisanlar.GetAll()
+                .Select(kvp => new
+                {
+                    ID = kvp.Key,
+                    Departman = kvp.Value[0],
+                    Ad = kvp.Value[1],
+                    Soyad = kvp.Value[2],
+                    Unvan = kvp.Value[3],
+                    ParentID = kvp.Value[4]
+                });
+
+            // Sıralama: Departman sırası > Yönetici/Çalışan > ID
+            var sirali = calisanlarList
+                .OrderBy(c => departmanSirasi.ContainsKey(c.Departman) ? departmanSirasi[c.Departman] : 999)
+                .ThenBy(c => c.Unvan == "Yönetici" ? 0 : 1)
+                .ThenBy(c => int.TryParse(c.ID, out int id) ? id : int.MaxValue);
+
+            foreach (var c in sirali)
+            {
+                lines.Add($"{c.ID};{c.Departman};{c.Ad};{c.Soyad};{c.Unvan};{c.ParentID}");
+            }
+
+            File.WriteAllLines(path, lines);
+        }
+
+
+        private static string Normalize(string input) =>
                 input?.Trim().ToLower(new System.Globalization.CultureInfo("tr-TR", false));
 
             private static void ShowAlert(string message)

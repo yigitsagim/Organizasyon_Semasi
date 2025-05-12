@@ -267,7 +267,7 @@ namespace veri_yapilari.kodlarim
                         return;
                     }
 
-                    new_id = (baseId * 100).ToString(); // Örn: 2 → 200
+                    new_id = (baseId).ToString(); // Örn: 2 → 200
                     new_parent = "99";
 
                     calisanlar.RemoveAll(x =>
@@ -300,10 +300,10 @@ namespace veri_yapilari.kodlarim
                     new_parent = yonetici.Key ?? "";
 
                     var tumIdler = calisanlar.GetAll()
-                        .Where(k => k.Key.StartsWith((baseId * 100).ToString()))
+                        .Where(k => k.Key.StartsWith((baseId).ToString()))
                         .Select(k => int.Parse(k.Key));
 
-                    int candidate = tumIdler.Any() ? tumIdler.Max() + 1 : baseId * 100 + 1;
+                    int candidate = tumIdler.Any() ? tumIdler.Max() + 1 : baseId + 1;
                     while (calisanlar.ContainsKey(candidate.ToString()))
                         candidate++;
 
@@ -338,37 +338,78 @@ namespace veri_yapilari.kodlarim
                 );
             }
 
-            private static void LoadDataFromCsv()
+        private static void LoadDataFromCsv()
+        {
+            calisanlar.Clear();
+            var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+            if (!File.Exists(path)) return;
+
+            foreach (var line in File.ReadAllLines(path).Skip(1))
             {
-                calisanlar.Clear();
-                var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
-                if (!File.Exists(path)) return;
+                var parts = line.Split(';');
 
-                foreach (var line in File.ReadAllLines(path).Skip(1))
+                // Eksik sütun varsa atla
+                if (parts.Length < 6) continue;
+
+                string key = parts[0];
+                string[] value = new string[5];
+                for (int i = 0; i < 5; i++)
                 {
-                    var parts = line.Split(';');
-                    if (parts.Length != 6) continue;
+                    value[i] = parts[i + 1].Trim(); // boşsa da "" olur
+                }
 
-                    string key = parts[0];
-                    string[] value = new[] { parts[1], parts[2], parts[3], parts[4], parts[5] };
-                    calisanlar.AddOrUpdate(key, value);
+                calisanlar.AddOrUpdate(key, value);
+            }
+        }
+
+
+        private static void SaveToCsv()
+        {
+            var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
+            var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;UstID" };
+
+            var all = calisanlar.GetAll()
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
+            // Önce genel yönetici (ID: 99) yazılır
+            if (all.TryGetValue("99", out string[] genelYonetici))
+            {
+                lines.Add($"99;{genelYonetici[0]};{genelYonetici[1]};{genelYonetici[2]};{genelYonetici[3]};{genelYonetici[4]}");
+            }
+
+            // Yöneticileri bul
+            var yoneticiler = all
+                .Where(kvp => kvp.Value[3] == "Yönetici" && kvp.Key != "99")
+                .OrderBy(kvp => int.Parse(kvp.Key)) // ID'ye göre sırala
+                .ToList();
+
+            foreach (var yonetici in yoneticiler)
+            {
+                string yoneticiId = yonetici.Key;
+                string[] val = yonetici.Value;
+
+                // Yöneticiyi yaz
+                lines.Add($"{yoneticiId};{val[0]};{val[1]};{val[2]};{val[3]};{val[4]}");
+
+                // O yöneticinin çalışanlarını bul ve yaz
+                var calisanlarAltinda = all
+                    .Where(x => x.Value[4] == yoneticiId && x.Value[3] != "Yönetici")
+                    .OrderBy(x => int.Parse(x.Key));
+
+                foreach (var c in calisanlarAltinda)
+                {
+                    var v = c.Value;
+                    lines.Add($"{c.Key};{v[0]};{v[1]};{v[2]};{v[3]};{v[4]}");
                 }
             }
 
-            private static void SaveToCsv()
-            {
-                var path = HttpContext.Current.Server.MapPath(DataFileVirtual);
-                var lines = new List<string> { "ID;Departman;Ad;Soyad;Ünvan;ParentID" };
+            File.WriteAllLines(path, lines, System.Text.Encoding.UTF8);
+        }
 
-                foreach (var kvp in calisanlar.GetAll())
-                {
-                    lines.Add($"{kvp.Key};{kvp.Value[0]};{kvp.Value[1]};{kvp.Value[2]};{kvp.Value[3]};{kvp.Value[4]}");
-                }
 
-                File.WriteAllLines(path, lines);
-            }
 
-            private static string Normalize(string input) =>
+
+        private static string Normalize(string input) =>
                 input?.Trim().ToLower(new System.Globalization.CultureInfo("tr-TR", false));
         }
     }

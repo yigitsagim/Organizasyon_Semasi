@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 
 namespace veri_yapilari.kodlarim
@@ -89,9 +90,11 @@ namespace veri_yapilari.kodlarim
         private void DosyadanYukle()
         {
             if (!File.Exists(dosyaYolu)) return;
-            string[] satirlar = File.ReadAllLines(dosyaYolu);
 
-            foreach (var satir in satirlar)
+            string[] satirlar = File.ReadAllLines(dosyaYolu);
+            tumNodlar.Clear(); // Eski veriler silinsin
+
+            foreach (var satir in satirlar.Skip(1)) // Başlık satırını atla
             {
                 var p = satir.Split(';');
                 if (p.Length < 6 || !int.TryParse(p[0], out int id)) continue;
@@ -104,7 +107,7 @@ namespace veri_yapilari.kodlarim
 
             foreach (var node in tumNodlar.Values)
             {
-                if (node.ParentId == null)
+                if (node.ParentId == null || node.ParentId == 0)
                 {
                     kok = node;
                 }
@@ -113,36 +116,50 @@ namespace veri_yapilari.kodlarim
                     tumNodlar[(int)node.ParentId].Cocuklar.Add(node);
                 }
             }
+
+            // Eğer hala kök atanmadıysa 99'u varsayalım
+            if (kok == null && tumNodlar.ContainsKey(99))
+            {
+                kok = tumNodlar[99];
+            }
         }
+
 
         private void DosyayaKaydet()
         {
-            List<string> satirlarCalisanlar = new List<string>();
-            Dictionary<string, int> benzersizDepartmanlar = new Dictionary<string, int>();
-            int departmanIdSayaci = 1;
+            List<string> satirlarCalisanlar = new List<string>
+    {
+        "ID;Departman;Ad;Soyad;Ünvan;UstID" // Başlık satırı
+    };
 
-            foreach (var node in tumNodlar.Values)
+            Dictionary<string, int> benzersizDepartmanlar = new Dictionary<string, int>();
+
+            // Çalışanları yaz
+            foreach (var node in tumNodlar.Values.OrderBy(n => n.Id))
             {
-                // calisanlar2.csv için tam veri
                 satirlarCalisanlar.Add($"{node.Id};{node.DepartmanAdi};{node.Ad};{node.Soyad};{node.Unvan};{(node.ParentId.HasValue ? node.ParentId.ToString() : "")}");
 
-                // departmanlar.csv için benzersiz departman adı eklenir
+                // Departman adı daha önce eklenmemişse, Id’sini al
                 if (!string.IsNullOrWhiteSpace(node.DepartmanAdi) && !benzersizDepartmanlar.ContainsKey(node.DepartmanAdi))
                 {
-                    benzersizDepartmanlar[node.DepartmanAdi] = departmanIdSayaci++;
+                    benzersizDepartmanlar[node.DepartmanAdi] = node.Id;
                 }
             }
 
             File.WriteAllLines(dosyaYolu, satirlarCalisanlar);
 
+            // Departman dosyasını yaz
             List<string> satirlarDepartmanlar = new List<string> { "Id;DepartmanAdi" };
-            foreach (var kvp in benzersizDepartmanlar)
+            foreach (var kvp in benzersizDepartmanlar.OrderBy(k => k.Value))
             {
                 satirlarDepartmanlar.Add($"{kvp.Value};{kvp.Key}");
             }
 
             File.WriteAllLines(departmanlarDosyaYolu, satirlarDepartmanlar);
         }
+
+
+
 
         public DepartmanTreeNode GetKok() => kok;
     }
