@@ -1,7 +1,5 @@
 # Kurumsal Organizasyon Şeması Oluşturucu
 
-**GitHub Link:** [Organizasyon Şeması GitHub Repo](https://github.com/yigitsagim/Organizasyon_Semasi.git)
-
 ## Proje Kapsamı ve Amacı
 
 Bu proje, bir kurumun organizasyonel yapısını yazılım aracılığıyla modellemeyi ve yönetmeyi amaçlamaktadır. Proje içerisinde departmanlara bağlı çalışanlar hiyerarşik bir yapı ile temsil edilir. Kullanıcılar, çalışan ve departman ekleme, silme, güncelleme ve arama gibi işlemleri gerçekleştirebilir. Ayrıca sistem, her çalışanın ait olduğu departmanla olan ilişkisini ve yönetici-alt çalışan bağını ağaç yapısı ile görselleştirir.
