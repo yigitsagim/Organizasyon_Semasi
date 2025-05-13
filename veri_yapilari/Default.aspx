@@ -142,8 +142,6 @@
 </asp:Content>
 
 <asp:Content ID="mainContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server" />
-
     <h2 style="text-align:center;">X Şirketi Organizasyon Şeması</h2>
 
     <div class="zoom-buttons">

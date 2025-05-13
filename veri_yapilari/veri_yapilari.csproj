@@ -99,8 +99,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="100.aspx" />
+    <Content Include="200.aspx" />
+    <Content Include="300.aspx" />
+    <Content Include="400.aspx" />
+    <Content Include="500.aspx" />
+    <Content Include="600.aspx" />
+    <Content Include="700.aspx" />
+    <Content Include="800.aspx" />
+    <Content Include="900.aspx" />
     <Content Include="About.aspx" />
-    <Content Include="BT.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -121,12 +129,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
-    <Content Include="Finans.aspx" />
     <Content Include="Form1.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="InsanKaynaklari.aspx" />
-    <Content Include="Pazarlama.aspx" />
-    <Content Include="Satis.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -191,6 +195,69 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="100.aspx.cs">
+      <DependentUpon>100.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="100.aspx.designer.cs">
+      <DependentUpon>100.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="200.aspx.cs">
+      <DependentUpon>200.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="200.aspx.designer.cs">
+      <DependentUpon>200.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="300.aspx.cs">
+      <DependentUpon>300.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="300.aspx.designer.cs">
+      <DependentUpon>300.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="400.aspx.cs">
+      <DependentUpon>400.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="400.aspx.designer.cs">
+      <DependentUpon>400.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="500.aspx.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="500.aspx.designer.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="600.aspx.cs">
+      <DependentUpon>600.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="600.aspx.designer.cs">
+      <DependentUpon>600.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="700.aspx.cs">
+      <DependentUpon>700.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="700.aspx.designer.cs">
+      <DependentUpon>700.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="800.aspx.cs">
+      <DependentUpon>800.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="800.aspx.designer.cs">
+      <DependentUpon>800.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="900.aspx.cs">
+      <DependentUpon>900.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="900.aspx.designer.cs">
+      <DependentUpon>900.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -200,13 +267,6 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="BT.aspx.cs">
-      <DependentUpon>BT.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BT.aspx.designer.cs">
-      <DependentUpon>BT.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,13 +281,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Finans.aspx.cs">
-      <DependentUpon>Finans.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Finans.aspx.designer.cs">
-      <DependentUpon>Finans.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Form1.aspx.cs">
       <DependentUpon>Form1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -238,13 +291,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="InsanKaynaklari.aspx.cs">
-      <DependentUpon>InsanKaynaklari.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InsanKaynaklari.aspx.designer.cs">
-      <DependentUpon>InsanKaynaklari.aspx</DependentUpon>
-    </Compile>
     <Compile Include="kodlarim\AgacKurucu.cs" />
     <Compile Include="kodlarim\AraCalisan.cs" />
     <Compile Include="kodlarim\Calisan.cs" />
@@ -254,21 +300,7 @@
     <Compile Include="kodlarim\FormVerileri0.cs" />
     <Compile Include="kodlarim\GuncelleCalisan.cs" />
     <Compile Include="kodlarim\SilCalisan.cs" />
-    <Compile Include="Pazarlama.aspx.cs">
-      <DependentUpon>Pazarlama.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pazarlama.aspx.designer.cs">
-      <DependentUpon>Pazarlama.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Satis.aspx.cs">
-      <DependentUpon>Satis.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Satis.aspx.designer.cs">
-      <DependentUpon>Satis.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -129,33 +129,35 @@ namespace veri_yapilari.kodlarim
         {
             List<string> satirlarCalisanlar = new List<string>
     {
-            "ID;Departman;Ad;Soyad;Ünvan;UstID" // Başlık satırı eklendi
+        "ID;Departman;Ad;Soyad;Ünvan;UstID" // Başlık satırı
     };
 
             Dictionary<string, int> benzersizDepartmanlar = new Dictionary<string, int>();
-            int departmanIdSayaci = 1;
 
-            // ID'ye göre sıralama ile kayıtları ekle
+            // Çalışanları yaz
             foreach (var node in tumNodlar.Values.OrderBy(n => n.Id))
             {
                 satirlarCalisanlar.Add($"{node.Id};{node.DepartmanAdi};{node.Ad};{node.Soyad};{node.Unvan};{(node.ParentId.HasValue ? node.ParentId.ToString() : "")}");
 
+                // Departman adı daha önce eklenmemişse, Id’sini al
                 if (!string.IsNullOrWhiteSpace(node.DepartmanAdi) && !benzersizDepartmanlar.ContainsKey(node.DepartmanAdi))
                 {
-                    benzersizDepartmanlar[node.DepartmanAdi] = departmanIdSayaci++;
+                    benzersizDepartmanlar[node.DepartmanAdi] = node.Id;
                 }
             }
 
             File.WriteAllLines(dosyaYolu, satirlarCalisanlar);
 
+            // Departman dosyasını yaz
             List<string> satirlarDepartmanlar = new List<string> { "Id;DepartmanAdi" };
-            foreach (var kvp in benzersizDepartmanlar)
+            foreach (var kvp in benzersizDepartmanlar.OrderBy(k => k.Value))
             {
                 satirlarDepartmanlar.Add($"{kvp.Value};{kvp.Key}");
             }
 
             File.WriteAllLines(departmanlarDosyaYolu, satirlarDepartmanlar);
         }
+
 
 
 

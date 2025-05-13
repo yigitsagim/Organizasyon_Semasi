@@ -51,8 +51,23 @@ namespace veri_yapilari
                 agac[ust].Add(kisi);
             }
 
+            // 🔍 Kontrol: veri var mı?
+            if (!kisiler.Any())
+            {
+                litSema.Text = "<li><div class='kutu'>Hiç çalışan bulunamadı</div></li>";
+                return;
+            }
+
+            if (!agac.ContainsKey("root") || agac["root"].Count == 0)
+            {
+                litSema.Text = "<li><div class='kutu'>Root altında hiç kişi yok</div></li>";
+                return;
+            }
+
+            // ✔️ Şema çizimi
             litSema.Text = CizAgac("root");
         }
+
 
         private string CizAgac(string ustID)
         {

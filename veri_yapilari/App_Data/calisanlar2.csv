@@ -1,14 +1,15 @@
-﻿ID;Departman;Ad;Soyad;Ünvan;ParentID
-99;Genel;Murtaza;Cicioğlu;Genel Yönetici;
+ID;Departman;Ad;Soyad;Ünvan;ParentID
+99;X;Murtaza;Cicioğlu;Genel Yönetici;
 100;Finans;Veli;Kurt;Yönetici;99
+101;Finans;Ayşe;Demir;Çalışan;100
 102;Finans;Onur;Çelik;Çalışan;100
 103;Finans;Melis;Yıldız;Çalışan;100
 104;Finans;Kerem;Şahin;Çalışan;100
 105;Finans;Elif;Aslan;Çalışan;100
 106;Finans;Cemre;Ersoy;Çalışan;100
-110;Finans;Burak;Koca;Çalışan;100
-111;Finans;Zeynep;Güner;Çalışan;100
-112;Finans;Halil;Uçar;Çalışan;100
+107;Finans;Burak;Koca;Çalışan;100
+108;Finans;Zeynep;Güner;Çalışan;100
+109;Finans;Halil;Uçar;Çalışan;100
 200;BT;Mert;Can;Yönetici;99
 201;BT;Gözde;Arslan;Çalışan;200
 202;BT;Yunus;Karaca;Çalışan;200
@@ -19,7 +20,7 @@
 207;BT;Pınar;Öztürk;Çalışan;200
 208;BT;Uğur;Yılmaz;Çalışan;200
 209;BT;Funda;Duman;Çalışan;200
-210;Finans;Berkan;Kocaman;Çalışan;100
+210;BT;Berkan;Kocaman;Çalışan;200
 300;Satış;Ece;Bilgin;Yönetici;99
 301;Satış;Alper;Özcan;Çalışan;300
 302;Satış;Hakan;Güler;Çalışan;300
@@ -30,7 +31,6 @@
 307;Satış;Neslihan;Kara;Çalışan;300
 308;Satış;Kadir;Deniz;Çalışan;300
 309;Satış;Arzu;Sönmez;Çalışan;300
-310;BT;Ayşe;Demir;Çalışan;200
 400;Pazarlama;Gülşah;Doğan;Yönetici;99
 401;Pazarlama;Hande;Tunalı;Çalışan;400
 402;Pazarlama;Tamer;Akın;Çalışan;400

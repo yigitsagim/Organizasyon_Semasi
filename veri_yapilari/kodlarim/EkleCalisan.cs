@@ -245,19 +245,20 @@ namespace veri_yapilari.kodlarim
                     return;
                 }
 
-                int baseId = pre * 100;
+                int baseId = pre;
                 string yeni_id;
                 string parent_id;
 
                 if (unvan == "Yönetici")
                 {
-                    bool mevcutYoneticiVar = calisanlar.Where(x =>
-                        x.Value[0] == departman &&
-                        x.Value[3] == "Yönetici" &&
-                        !string.IsNullOrWhiteSpace(x.Value[1]) &&
-                        !string.IsNullOrWhiteSpace(x.Value[2])).Any();
+                bool mevcutYoneticiVar = calisanlar.GetAll().Any(x =>
+    x.Value[0].Trim() == departman &&
+    x.Value[3].Trim() == "Yönetici" &&
+    !string.IsNullOrWhiteSpace(x.Value[1]?.Trim()) &&
+    !string.IsNullOrWhiteSpace(x.Value[2]?.Trim()));
 
-                    if (mevcutYoneticiVar)
+
+                if (mevcutYoneticiVar)
                     {
                         ShowAlert("Bu departmanda zaten bir yönetici var. Yeni yönetici eklenemez.");
                         return;

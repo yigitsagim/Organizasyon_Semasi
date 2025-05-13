@@ -4,12 +4,11 @@
     "\\veri_yapilari",
     "\\veri_yapilari\\App_Data",
     "\\veri_yapilari\\kodlarim",
-    "\\veri_yapilari\\obj",
     "\\veri_yapilari\\obj\\Debug",
     "\\veri_yapilari\\obj\\Release",
     "\\veri_yapilari\\Properties",
-    "\\veri_yapilari\\Scripts"
+    "\\veri_yapilari\\veri_yapilari"
   ],
-  "SelectedNode": "\\veri_yapilari\\App_Data\\calisanlar2.csv",
+  "SelectedNode": "\\veri_yapilari\\kodlarim\\EkleCalisan.cs",
   "PreviewInSolutionExplorer": false
 }

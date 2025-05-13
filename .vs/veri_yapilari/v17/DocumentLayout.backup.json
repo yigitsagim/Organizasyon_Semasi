@@ -1,42 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\",
+  "WorkspaceRootPath": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|c:\\users\\serci\\desktop\\organizasyon_semasi-main (1)9\\organizasyon_semasi-main\\veri_yapilari\\kodlarim\\silcalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\silcalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\departmanislemleri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\departmanislemleri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|c:\\users\\serci\\desktop\\organizasyon_semasi-main (1)9\\organizasyon_semasi-main\\veri_yapilari\\kodlarim\\guncellecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\guncellecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\eklecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\kodlarim\\eklecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\eklecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\app_data\\calisanlar2.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|c:\\users\\berkan kocaman\\desktop\\sonnn proje\\veri_yapilari\\app_data\\calisanlar2.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\app_data\\calisanlar2.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\app_data\\departmanlar.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\app_data\\departmanlar.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\app_data\\departmanlar.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\kodlarim\\guncellecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\kodlarim\\guncellecalisan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\100.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\100.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\site.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\600.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\600.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\200.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\200.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\800.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\800.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\500.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\500.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\400.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\400.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\100.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{C09B6558-AD3A-4052-B824-2F71AA82850B}|veri_yapilari\\veri_yapilari.csproj|solutionrelative:veri_yapilari\\100.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,131 +66,179 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GuncelleCalisan.cs",
-              "DocumentMoniker": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
               "RelativeDocumentMoniker": "veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
-              "ToolTip": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
               "RelativeToolTip": "veri_yapilari\\kodlarim\\GuncelleCalisan.cs",
-              "ViewState": "AgIAAHsBAAAAAAAAAAAAAKEBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAG4BAAAAAAAAAAAIwJIBAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-08T21:05:30.376Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SilCalisan.cs",
-              "DocumentMoniker": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\SilCalisan.cs",
-              "RelativeDocumentMoniker": "veri_yapilari\\kodlarim\\SilCalisan.cs",
-              "ToolTip": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\SilCalisan.cs*",
-              "RelativeToolTip": "veri_yapilari\\kodlarim\\SilCalisan.cs*",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T11:23:22.388Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "DocumentIndex": 8,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\Default.aspx",
+              "RelativeDocumentMoniker": "veri_yapilari\\Default.aspx",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\Default.aspx",
+              "RelativeToolTip": "veri_yapilari\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-11T01:07:44.767Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Site.Master.cs",
-              "DocumentMoniker": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\Site.Master.cs",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\Site.Master.cs",
               "RelativeDocumentMoniker": "veri_yapilari\\Site.Master.cs",
-              "ToolTip": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\Site.Master.cs",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\Site.Master.cs",
               "RelativeToolTip": "veri_yapilari\\Site.Master.cs",
-              "ViewState": "AgIAAAYBAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAmwGsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T17:36:57.023Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Site.Master",
-              "DocumentMoniker": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\Site.Master",
-              "RelativeDocumentMoniker": "veri_yapilari\\Site.Master",
-              "ToolTip": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\Site.Master",
-              "RelativeToolTip": "veri_yapilari\\Site.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-05-10T14:35:46.693Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "departmanlar.csv",
-              "DocumentMoniker": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\App_Data\\departmanlar.csv",
-              "RelativeDocumentMoniker": "veri_yapilari\\App_Data\\departmanlar.csv",
-              "ToolTip": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\App_Data\\departmanlar.csv",
-              "RelativeToolTip": "veri_yapilari\\App_Data\\departmanlar.csv",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2025-05-09T12:55:20.563Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DepartmanIslemleri.cs",
-              "DocumentMoniker": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\DepartmanIslemleri.cs",
-              "RelativeDocumentMoniker": "veri_yapilari\\kodlarim\\DepartmanIslemleri.cs",
-              "ToolTip": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\DepartmanIslemleri.cs",
-              "RelativeToolTip": "veri_yapilari\\kodlarim\\DepartmanIslemleri.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAowHMAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T23:41:58.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T00:42:14.716Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "100.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\100.aspx.cs",
+              "RelativeDocumentMoniker": "veri_yapilari\\100.aspx.cs",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\100.aspx.cs",
+              "RelativeToolTip": "veri_yapilari\\100.aspx.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T01:22:36.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "calisanlar2.csv",
-              "DocumentMoniker": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\App_Data\\calisanlar2.csv",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\App_Data\\calisanlar2.csv",
               "RelativeDocumentMoniker": "veri_yapilari\\App_Data\\calisanlar2.csv",
-              "ToolTip": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\App_Data\\calisanlar2.csv",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\App_Data\\calisanlar2.csv",
               "RelativeToolTip": "veri_yapilari\\App_Data\\calisanlar2.csv",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAADAAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
               "WhenOpened": "2025-05-06T16:11:07.74Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "EkleCalisan.cs",
-              "DocumentMoniker": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\EkleCalisan.cs",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\kodlarim\\EkleCalisan.cs",
               "RelativeDocumentMoniker": "veri_yapilari\\kodlarim\\EkleCalisan.cs",
-              "ToolTip": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\kodlarim\\EkleCalisan.cs",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\kodlarim\\EkleCalisan.cs",
               "RelativeToolTip": "veri_yapilari\\kodlarim\\EkleCalisan.cs",
-              "ViewState": "AgIAAGcBAAAAAAAAAAA5wHABAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAAwAIBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T14:09:46.888Z",
+              "WhenOpened": "2025-05-11T11:39:58.975Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Default.aspx",
-              "DocumentMoniker": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\Default.aspx",
-              "RelativeDocumentMoniker": "veri_yapilari\\Default.aspx",
-              "ToolTip": "C:\\Users\\serci\\Desktop\\Organizasyon_Semasi-main (1)9\\Organizasyon_Semasi-main\\veri_yapilari\\Default.aspx",
-              "RelativeToolTip": "veri_yapilari\\Default.aspx",
+              "DocumentIndex": 2,
+              "Title": "departmanlar.csv",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\App_Data\\departmanlar.csv",
+              "RelativeDocumentMoniker": "veri_yapilari\\App_Data\\departmanlar.csv",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\App_Data\\departmanlar.csv",
+              "RelativeToolTip": "veri_yapilari\\App_Data\\departmanlar.csv",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2025-05-09T12:55:20.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "600.aspx.designer.cs",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\600.aspx.designer.cs",
+              "RelativeDocumentMoniker": "veri_yapilari\\600.aspx.designer.cs",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\600.aspx.designer.cs",
+              "RelativeToolTip": "veri_yapilari\\600.aspx.designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAnwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T12:07:22.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Site.Master",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\Site.Master",
+              "RelativeDocumentMoniker": "veri_yapilari\\Site.Master",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\Site.Master",
+              "RelativeToolTip": "veri_yapilari\\Site.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-05-10T17:37:13.95Z"
+              "WhenOpened": "2025-05-11T00:12:23.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "400.aspx",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\400.aspx",
+              "RelativeDocumentMoniker": "veri_yapilari\\400.aspx",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\400.aspx",
+              "RelativeToolTip": "veri_yapilari\\400.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-11T01:59:19.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "500.aspx",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\500.aspx",
+              "RelativeDocumentMoniker": "veri_yapilari\\500.aspx",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\500.aspx",
+              "RelativeToolTip": "veri_yapilari\\500.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-11T01:59:23.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "800.aspx",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\800.aspx",
+              "RelativeDocumentMoniker": "veri_yapilari\\800.aspx",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\800.aspx",
+              "RelativeToolTip": "veri_yapilari\\800.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-11T01:59:41.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "200.aspx",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\200.aspx",
+              "RelativeDocumentMoniker": "veri_yapilari\\200.aspx",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\200.aspx",
+              "RelativeToolTip": "veri_yapilari\\200.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-11T01:58:36.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "100.aspx",
+              "DocumentMoniker": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\100.aspx",
+              "RelativeDocumentMoniker": "veri_yapilari\\100.aspx",
+              "ToolTip": "C:\\Users\\Berkan Kocaman\\Desktop\\sonnn proje\\veri_yapilari\\100.aspx",
+              "RelativeToolTip": "veri_yapilari\\100.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-11T01:47:19.458Z"
             }
           ]
         }

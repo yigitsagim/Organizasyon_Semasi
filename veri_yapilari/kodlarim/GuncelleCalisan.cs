@@ -267,7 +267,7 @@ namespace veri_yapilari.kodlarim
                         return;
                     }
 
-                    new_id = (baseId * 100).ToString(); // Örn: 2 → 200
+                    new_id = (baseId).ToString(); // Örn: 2 → 200
                     new_parent = "99";
 
                     calisanlar.RemoveAll(x =>
@@ -300,10 +300,10 @@ namespace veri_yapilari.kodlarim
                     new_parent = yonetici.Key ?? "";
 
                     var tumIdler = calisanlar.GetAll()
-                        .Where(k => k.Key.StartsWith((baseId * 100).ToString()))
+                        .Where(k => k.Key.StartsWith((baseId).ToString()))
                         .Select(k => int.Parse(k.Key));
 
-                    int candidate = tumIdler.Any() ? tumIdler.Max() + 1 : baseId * 100 + 1;
+                    int candidate = tumIdler.Any() ? tumIdler.Max() + 1 : baseId + 1;
                     while (calisanlar.ContainsKey(candidate.ToString()))
                         candidate++;
 

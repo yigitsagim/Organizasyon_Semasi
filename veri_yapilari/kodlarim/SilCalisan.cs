@@ -13,7 +13,10 @@ namespace veri_yapilari.kodlarim
     {
         private const string DataFileVirtual = "~/App_Data/calisanlar2.csv";
 
-        
+        /// <summary>
+        /// Silme işlemini yapar. 
+        /// out multipleDepartments: eğer birden fazla departman varsa doldurulur.
+        /// </summary>
         public static void Sil(out List<string> multipleDepartments)
         {
             multipleDepartments = null;
@@ -22,7 +25,7 @@ namespace veri_yapilari.kodlarim
             string soyad = FormVerileri0.SilSoyad?.Trim() ?? "";
             string dept = FormVerileri0.SilDepartman?.Trim() ?? "";
 
-            
+            // 1) CSV’den oku
             var rows = new List<string[]>();
             var table = new Hashtable();
             string path = HttpContext.Current.Server.MapPath(DataFileVirtual);
@@ -38,7 +41,7 @@ namespace veri_yapilari.kodlarim
                 }
             }
 
-            
+            // 2) Eşleşmeleri bul
             IEnumerable<string[]> matched;
             if (!string.IsNullOrEmpty(dept))
             {
@@ -63,25 +66,25 @@ namespace veri_yapilari.kodlarim
                 return;
             }
 
-            
+            // 3) Birden fazla departman kontrolü
             var distinctDeps = matches.Select(p => p[1].Trim()).Distinct().ToList();
             if (distinctDeps.Count > 1 && string.IsNullOrEmpty(dept))
             {
-                
+                // Kullanıcıya seçim yaptırmak üzere listeyi döndür
                 multipleDepartments = distinctDeps;
                 return;
             }
 
-            
+            // 4) Silinecek kaydı seç
             var found = matches[0];
             string lookupKey = $"{found[1].Trim().ToLower()}_{found[2].Trim().ToLower()}_{found[3].Trim().ToLower()}";
             table.Remove(lookupKey);
 
-            
+            // 5) CSV’yi yeniden yaz (ID’ye göre sıralı olacak şekilde)
             var updatedRows = new List<string>();
             updatedRows.Add("ID;Departman;Ad;Soyad;Ünvan;ParentID");
 
-            
+            // Listeyi ID’ye göre sırala
             var sortedRows = table.Values
                 .Cast<string[]>()
                 .OrderBy(p => int.TryParse(p[0], out int id) ? id : int.MaxValue)
@@ -95,7 +98,7 @@ namespace veri_yapilari.kodlarim
             File.WriteAllLines(path, updatedRows, Encoding.UTF8);
 
 
-            
+            // 6) Başarı mesajı
             ShowAlert($"Silindi: {found[1].Trim()} - {found[2].Trim()} {found[3].Trim()}");
         }
 

@@ -32,7 +32,7 @@
             color: white;
             margin-right: 20px;
         }
-        .sidebar h2 {
+        .sidebar h4 {
             color: white;
             margin-bottom: 20px;
         }
@@ -61,7 +61,7 @@
 </head>
 <body>
     <form runat="server">
-
+        <asp:ScriptManager ID="MainScriptManager" runat="server" />
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="Default.aspx">X Şirketi</a>
@@ -70,11 +70,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link" href="BT.aspx">BT</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Satis.aspx">Satış</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Pazarlama.aspx">Pazarlama</a></li>
-                        <li class="nav-item"><a class="nav-link" href="InsanKaynaklari.aspx">İnsan Kaynakları</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Finans.aspx">Finans</a></li>
+                        <asp:PlaceHolder ID="phNavbarLinks" runat="server" />
                     </ul>
                 </div>
             </div>
@@ -90,15 +86,14 @@
                 <asp:Button ID="btnDepartman" runat="server" Text="Departman Ekle" CssClass="btn" OnClick="BtnDepartman_Click" />
             </div>
 
+      
+
             <div class="form-container">
-                <!-- Çalışan ekleme paneli -->
                 <asp:Panel ID="panelEkle" runat="server" Visible="false">
                     <h4>Çalışan Ekle</h4>
                     <asp:TextBox ID="txtEkleAd" runat="server" CssClass="form-control mb-2" placeholder="Ad" />
                     <asp:TextBox ID="txtEkleSoyad" runat="server" CssClass="form-control mb-2" placeholder="Soyad" />
-
-                    <asp:DropDownList ID="ddlDepartman" runat="server" CssClass="form-control mb-2">
-                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlDepartman" runat="server" CssClass="form-control mb-2" />
                     <asp:DropDownList ID="ddlEkleGorev" runat="server" CssClass="form-control mb-3">
                         <asp:ListItem>Çalışan</asp:ListItem>
                         <asp:ListItem>Yönetici</asp:ListItem>
@@ -106,47 +101,35 @@
                     <asp:Button ID="btnKaydet" runat="server" Text="Çalışan Ekle" CssClass="btn btn-secondary" OnClick="BtnKaydet_Click" />
                 </asp:Panel>
 
-                <!-- Çalışan silme paneli -->
-                 <asp:Panel ID="panelSil" runat="server" Visible="false">
-     <h4>Çalışan Sil</h4>
-     <asp:TextBox ID="txtSilAd" runat="server" CssClass="form-control mb-2" placeholder="Ad" />
-     <asp:TextBox ID="txtSilSoyad" runat="server" CssClass="form-control mb-2" placeholder="Soyad" />
-
-     <asp:TextBox ID="txtSilDepartman" runat="server" CssClass="form-control mb-2" placeholder="Departman (isteğe bağlı)" />
-
-     <asp:Label ID="lblSilInfo" runat="server" CssClass="form-label mt-2" Text="" Visible="false"></asp:Label>
-     <asp:DropDownList ID="ddlSilDepartmanSec" runat="server" CssClass="form-control mb-2" Visible="false"></asp:DropDownList>
-
-     <asp:Button ID="btnSilCalisan" runat="server" Text="Sil" CssClass="btn btn-secondary" OnClick="btnSilCalisan_Click"/>
- </asp:Panel>
-
-                <!-- Çalışan güncelleme paneli -->
                 <asp:Panel ID="panelGuncelle" runat="server" Visible="false">
                     <h4>Çalışan Güncelle</h4>
                     <asp:TextBox ID="txtGuncelAd" runat="server" CssClass="form-control mb-2" placeholder="Ad" />
                     <asp:TextBox ID="txtGuncelSoyad" runat="server" CssClass="form-control mb-2" placeholder="Soyad" />
-                    <asp:DropDownList ID="ddlGuncelleNewDep" runat="server" CssClass="form-control mb-3">
-                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddlGuncelleNewDep" runat="server" CssClass="form-control mb-3" />
                     <asp:DropDownList ID="ddlGuncelleGorev" runat="server" CssClass="form-control mb-3">
                         <asp:ListItem>Çalışan</asp:ListItem>
                         <asp:ListItem>Yönetici</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:Button ID="btnGuncelleCalisan" runat="server" Text="Çalışanı Güncelle" CssClass="btn btn-secondary" OnClick="BtnGuncelleCalisan_Click" />
+                    <asp:Button ID="btnGuncelleCalisan" runat="server" Text="Güncelle" CssClass="btn btn-secondary" OnClick="BtnGuncelleCalisan_Click" />
                 </asp:Panel>
 
-                <!-- Çalışan arama paneli -->
-               <asp:Panel ID="panelAra" runat="server" Visible="false">
+                <asp:Panel ID="panelAra" runat="server" Visible="false">
                     <h4>Çalışan Ara</h4>
                     <asp:TextBox ID="txtAra" runat="server" CssClass="form-control mb-2" placeholder="Ad Soyad" />
-                    
-
-                    <asp:Button ID="btnAraCalisan" runat="server" Text="Çalışanı Bul" CssClass="btn btn-secondary" OnClick="btnAraCalisan_Click"/>
-                     <!-- Alt satırda kutu gibi bilgi gösterecek label -->
+                    <asp:Button ID="btnAraCalisan" runat="server" Text="Ara" CssClass="btn btn-secondary" OnClick="btnAraCalisan_Click" />
                     <asp:Label ID="lblBilgi" runat="server" CssClass="form-control mt-2" />
-
                 </asp:Panel>
 
-                <!-- Departman ekleme paneli -->
+                <asp:Panel ID="panelSil" runat="server" Visible="false">
+                    <h4>Çalışan Sil</h4>
+                    <asp:TextBox ID="txtSilAd" runat="server" CssClass="form-control mb-2" placeholder="Ad" />
+                    <asp:TextBox ID="txtSilSoyad" runat="server" CssClass="form-control mb-2" placeholder="Soyad" />
+                    <asp:TextBox ID="txtSilDepartman" runat="server" CssClass="form-control mb-2" placeholder="Departman (isteğe bağlı)" />
+                    <asp:Label ID="lblSilInfo" runat="server" CssClass="form-label mt-2" Text="" Visible="false" />
+                    <asp:DropDownList ID="ddlSilDepartmanSec" runat="server" CssClass="form-control mb-2" Visible="false" />
+                    <asp:Button ID="btnSilCalisan" runat="server" Text="Sil" CssClass="btn btn-secondary" OnClick="btnSilCalisan_Click" />
+                </asp:Panel>
+
                 <asp:Panel ID="panelDepartman" runat="server" Visible="false">
                     <h4>Departman Ekle</h4>
                     <asp:TextBox ID="txtYeniDepartman" runat="server" CssClass="form-control mb-2" placeholder="Departman Adı" />

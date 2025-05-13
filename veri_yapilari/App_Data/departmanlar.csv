@@ -1,8 +1,8 @@
 Id;DepartmanAdi
-1;Genel
-2;Finans
-3;BT
-4;Satış
-5;Pazarlama
-6;İK
-7;AR-GE
+99;X
+100;Finans
+200;BT
+300;Satış
+400;Pazarlama
+500;İK
+
