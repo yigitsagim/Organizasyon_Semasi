@@ -171,7 +171,7 @@ Proje, veri yapılarının etkin kullanımına dayalı, sürdürülebilir ve iş
 1. Projeyi klonlayın veya ZIP olarak indirin:
    ```bash
    git clone https://github.com/yigitsagim/Organizasyon_Semasi.git
-2.veri_yapilari.sln dosyasını Visual Studio ile açın.
+2. veri_yapilari.sln dosyasını Visual Studio ile açın.
 3.	Gerekli NuGet paketlerini kontrol edin (Web Forms projelerinde genellikle gerekmez).
 4.	F5 ile projeyi çalıştırın.
 5.	Tarayıcıda açıldığında:
